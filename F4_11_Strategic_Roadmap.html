@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strategic Roadmap — Lunar Gateway Supply Chain 2026–2035</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #e8e8e8; }
+
+/* ── NASA PALETTE ──
+   BG      #F0F0F0   light grey
+   DBLUE   #222288   NASA deep blue   (Phase 1)
+   GREEN   #197A3C   NASA green       (Phase 2)
+   RED     #CC0000   NASA red         (Phase 3 / S4)
+   ORANGE  #DB5200   NASA orange      (push arrows)
+   GOLD    #E6C44D   NASA gold        (milestones / PCE)
+*/
+
+.container { max-width: 1500px; margin: 0 auto; background: #fff; box-shadow: 0 4px 24px rgba(0,0,0,0.18); }
+
+/* ── Title bar ── */
+.titlebar { background: #B02418; padding: 16px 32px; }
+.titlebar h1 { font-size: 20px; font-weight: 700; color: #fff; letter-spacing: 0.3px; }
+
+/* ── Stats row ── */
+.statsrow { display: flex; background: #fdf3f2; border-bottom: 2px solid #B02418; }
+.stat { flex: 1; padding: 12px 16px; text-align: center; border-right: 1px solid #f0ccc8; }
+.stat:last-child { border-right: none; }
+.stat-val  { font-size: 22px; font-weight: 800; color: #B02418; }
+.stat-val.green { color: #197A3C; }
+.stat-val.red   { color: #B02418; }
+.stat-val.gold  { color: #AA8800; }
+.stat-lbl  { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: #666; margin-top: 2px; }
+
+/* ── Phase legend row ── */
+.phase-legend { display: flex; gap: 0; border-bottom: 3px solid #ddd; }
+.phase-tile { flex: 1; padding: 14px 20px; color: #fff; text-align: center; }
+.phase-tile h3 { font-size: 14px; font-weight: 800; }
+.phase-tile p  { font-size: 11px; opacity: 0.9; margin-top: 4px; line-height: 1.5; }
+.ph1 { background: #c0392b; }
+.ph2 { background: #922015; }
+.ph3 { background: #6b1610; }
+
+/* ── Main roadmap canvas ── */
+.roadmap-wrap { overflow-x: auto; background: #F0F0F0; padding: 0; cursor: grab; user-select: none; }
+.roadmap-wrap.dragging { cursor: grabbing; }
+.roadmap { position: relative; min-width: 1100px; }
+
+/* ── Timeline header ── */
+.timeline-hdr { display: flex; background: #B02418; border-bottom: 2px solid #8b1e12; }
+.lane-label-hdr { width: 155px; min-width: 155px; padding: 7px 10px; font-size: 10px; font-weight: 700; color: #ffd5d0; text-transform: uppercase; letter-spacing: 0.5px; border-right: 2px solid #8b1e12; }
+.yr-cols { flex: 1; display: flex; }
+.yr-col { flex: 1; text-align: center; padding: 7px 4px; font-size: 11px; font-weight: 700; color: #fff; border-right: 1px solid #cc3020; }
+
+/* ── Phase band row ── */
+.phase-band-row { display: flex; height: 36px; border-bottom: 2px solid #ccc; }
+.lane-label-ph { width: 155px; min-width: 155px; background: #e0e0e0; border-right: 2px solid #bbb; }
+.phase-bands { flex: 1; display: flex; position: relative; }
+.ph-band { position: absolute; top: 0; bottom: 0; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; color: rgba(255,255,255,0.95); letter-spacing: 0.3px; border-right: 2px solid rgba(255,255,255,0.4); }
+
+/* ── Swim lanes ── */
+.swim-lane { display: flex; min-height: 110px; border-bottom: 1px solid #ccc; }
+.swim-lane:last-child { border-bottom: none; }
+.lane-label { width: 155px; min-width: 155px; display: flex; align-items: center; justify-content: center; border-right: 2px solid #bbb; padding: 8px 6px; }
+.lane-label span { writing-mode: horizontal-tb; font-size: 11px; font-weight: 700; color: #fff; text-align: center; line-height: 1.3; }
+.lane-body { flex: 1; position: relative; background: #F8F8F8; }
+.lane-body.alt { background: #F0F0F0; }
+
+/* Grid lines inside lanes */
+.grid-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; display: flex; }
+.grid-yr { flex: 1; border-right: 1px dashed #ccc; }
+.phase-divider { position: absolute; top: 0; bottom: 0; width: 2px; background: rgba(100,100,100,0.3); pointer-events: none; }
+
+/* ── Milestone diamonds ── */
+.milestone { position: absolute; transform: translateX(-50%); cursor: pointer; z-index: 5; }
+.diamond-wrap { display: flex; flex-direction: column; align-items: center; }
+.diamond { width: 18px; height: 18px; transform: rotate(45deg); border: 2px solid rgba(0,0,0,0.3); transition: transform 0.15s, filter 0.15s; }
+.milestone:hover .diamond { transform: rotate(45deg) scale(1.35); filter: brightness(1.2); }
+.m-stem { width: 2px; background: rgba(0,0,0,0.2); }
+
+/* Scenario badge */
+.s-badge { font-size: 8px; font-weight: 800; color: #fff; padding: 1px 5px; border-radius: 8px; margin-bottom: 2px; white-space: nowrap; }
+
+/* Milestone label */
+.m-label { background: #fff; border: 1px solid #bbb; border-radius: 3px; padding: 3px 5px; font-size: 7.5px; font-weight: 600; color: #222; text-align: center; line-height: 1.4; white-space: nowrap; box-shadow: 0 1px 4px rgba(0,0,0,0.12); max-width: 110px; white-space: normal; }
+
+/* Tooltip */
+.tooltip { position: fixed; background: #3d0a07; color: #fff; padding: 10px 14px; border-radius: 6px; font-size: 11px; pointer-events: none; z-index: 1000; max-width: 240px; box-shadow: 0 4px 16px rgba(0,0,0,0.4); display: none; line-height: 1.7; }
+.tooltip h4 { font-size: 12px; color: #ffb3ad; border-bottom: 1px solid #7a1a14; padding-bottom: 4px; margin-bottom: 4px; }
+.tooltip .t-row { display: flex; justify-content: space-between; gap: 10px; }
+.tooltip .t-k { color: #99BBDD; }
+.tooltip .t-v { font-weight: 700; }
+
+/* Controls */
+.controls { padding: 10px 20px; background: #f5f5f5; border-top: 2px solid #ddd; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.btn { padding: 6px 14px; border: none; border-radius: 4px; cursor: pointer; font-size: 11px; font-weight: 700; }
+.btn-primary { background: #B02418; color: #fff; }
+.btn-primary:hover { background: #c0392b; }
+
+/* Footer */
+.footer { padding: 8px 20px; background: #e8e8e8; font-size: 9px; color: #888; display: flex; justify-content: space-between; flex-wrap: wrap; }
+
+@media print {
+  body { background: #fff; }
+  .container { box-shadow: none; }
+  .controls { display: none; }
+  .roadmap-wrap { overflow: visible; }
+  .roadmap { min-width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Title bar -->
+  <div class="titlebar">
+    <h1>Strategic Roadmap: Integrated Framework Implementation Timeline (2026–2035)</h1>
+  </div>
+
+  <!-- Stats row -->
+  <div class="statsrow">
+    <div class="stat"><div class="stat-val">3</div><div class="stat-lbl">Phases</div></div>
+    <div class="stat"><div class="stat-val">9 yrs</div><div class="stat-lbl">Horizon (2026–2035)</div></div>
+    <div class="stat"><div class="stat-val green">$225M</div><div class="stat-lbl">Total LCC Saving</div></div>
+    <div class="stat"><div class="stat-val">11</div><div class="stat-lbl">Optimised Missions</div></div>
+    <div class="stat"><div class="stat-val gold">642 kg/mo</div><div class="stat-lbl">Max ISRU Output</div></div>
+    <div class="stat"><div class="stat-val green">30.7%</div><div class="stat-lbl">Future PCE (VSM)</div></div>
+    <div class="stat"><div class="stat-val red">S4 Gate</div><div class="stat-lbl">Starship Decision 2031</div></div>
+  </div>
+
+  <!-- Phase legend -->
+  <div class="phase-legend">
+    <div class="phase-tile ph1">
+      <h3>Phase 1 — Framework Deployment &amp; MILP Activation</h3>
+      <p>2026–2028 &nbsp;|&nbsp; S1 savings Month 1 &nbsp;|&nbsp; S3 full lean Year 2 &nbsp;|&nbsp; MILP v1.0 deployed</p>
+    </div>
+    <div class="phase-tile ph2">
+      <h3>Phase 2 — ISRU Commissioning &amp; Lean Implementation</h3>
+      <p>2028–2031 &nbsp;|&nbsp; S2 savings Year 3 &nbsp;|&nbsp; ISRU 25→75% &nbsp;|&nbsp; Multi-provider contracts active</p>
+    </div>
+    <div class="phase-tile ph3">
+      <h3>Phase 3 — Full Operational Optimisation (ISRU + Multi-Provider)</h3>
+      <p>2031–2035 &nbsp;|&nbsp; ISRU 100% (642 kg/mo) &nbsp;|&nbsp; S4 Starship gate 2031 &nbsp;|&nbsp; LCC $1,247M target</p>
+    </div>
+  </div>
+
+  <!-- Roadmap -->
+  <div class="roadmap-wrap">
+    <div class="roadmap" id="roadmap">
+
+      <!-- Timeline header -->
+      <div class="timeline-hdr">
+        <div class="lane-label-hdr">Swim Lane</div>
+        <div class="yr-cols" id="yrHeader"></div>
+      </div>
+
+      <!-- Phase band -->
+      <div class="phase-band-row">
+        <div class="lane-label-ph"></div>
+        <div class="phase-bands" id="phaseBands"></div>
+      </div>
+
+      <!-- Swim lanes -->
+      <div id="swimLanes"></div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- Tooltip -->
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+// ── Config ────────────────────────────────────────────────────────────────
+const YR_START = 2026, YR_END = 2035, YR_SPAN = YR_END - YR_START;
+
+// Colour palette — primary #B02418, light gradation across phases
+const C = {
+  ph1: '#c0392b', ph1l: '#d9534f',
+  ph2: '#922015', ph2l: '#b02418',
+  ph3: '#6b1610', ph3l: '#8b1e12',
+  gold: '#E6C44D', goldd: '#AA8800',
+  orange: '#DB5200',
+  black: '#000000',
+  grey: '#888888',
+};
+
+function pct(yr) { return ((yr - YR_START) / YR_SPAN) * 100; }
+
+// ── Year header ────────────────────────────────────────────────────────────
+const yrHdr = document.getElementById('yrHeader');
+for (let y = YR_START; y < YR_END; y++) {
+  const d = document.createElement('div');
+  d.className = 'yr-col';
+  d.textContent = y;
+  yrHdr.appendChild(d);
+}
+
+// ── Phase bands ────────────────────────────────────────────────────────────
+const bands = document.getElementById('phaseBands');
+bands.style.position = 'relative';
+[
+  { from: 2026, to: 2028, color: '#c0392b', label: 'Phase 1' },
+  { from: 2028, to: 2031, color: '#922015', label: 'Phase 2' },
+  { from: 2031, to: 2035, color: '#6b1610', label: 'Phase 3' },
+].forEach(b => {
+  const el = document.createElement('div');
+  el.className = 'ph-band';
+  el.style.left  = pct(b.from) + '%';
+  el.style.width = (pct(b.to) - pct(b.from)) + '%';
+  el.style.background = b.color;
+  el.style.fontSize = '11px';
+  el.textContent = b.label;
+  bands.appendChild(el);
+});
+
+// ── Swim lane data ─────────────────────────────────────────────────────────
+const LANES = [
+  {
+    id: 'cost', label: 'Cost\nManagement', color: '#c0392b', alt: false,
+    milestones: [
+      { yr: 2026.2, label: ['S1 Savings','Month 1','$225M locked'], badge: 'S1', color: C.gold, badgeColor: C.goldd,
+        tip: { title:'S1 — LCC Saving Realised Month 1', Phase:'Phase 1 (2026–28)', Value:'$225M (−15.3%)', Mechanism:'MILP consolidation: 21→11 missions', 'Baseline LCC':'$1,472M', 'Optimised LCC':'$1,247M', 'Verified vs':'GUROBI v10.0' }},
+      { yr: 2027.5, label: ['MILP v1.0','Deployed','intlinprog'], color: C.ph1,
+        tip: { title:'MILP v1.0 Deployed', Phase:'Phase 1', Solver:'intlinprog (MATLAB Optimization Toolbox)', Horizon:'12-month demo → 84-month full model', Output:'11-mission optimal schedule', Note:'normcdf replaced with erfc base-MATLAB' }},
+      { yr: 2029.5, label: ['S2 Savings','Year 3 realised','$225M confirmed'], badge: 'S2', color: C.gold, badgeColor: C.goldd,
+        tip: { title:'S2 — Year 3 Savings Confirmed', Phase:'Phase 2 (2028–31)', Value:'$225M cumulative saving confirmed', 'ISRU contribution':'~320 kg/mo (50% maturity)', 'Dual-provider':'Vulcan Centaur + Falcon Heavy active', Note:'Cross-validated Monte Carlo P50=$1,472M' }},
+      { yr: 2032.0, label: ['LCC Target','$1,247M','on track'], color: C.ph2,
+        tip: { title:'LCC Target $1,247M On Track', Phase:'Phase 3 (2031–35)', Status:'Full ISRU + MILP schedule operational', 'ISRU offset':'642 kg/mo (100%)', 'Net demand':'SS = 193 kg/mo only', 'Annual hold':'$11.9M/yr (k_s=1.65)' }},
+      { yr: 2034.8, label: ['Final LCC','$1,247M','achieved'], color: C.ph2,
+        tip: { title:'Final LCC $1,247M Achieved', Phase:'Phase 3 close-out', 'Total missions':'11 (M-1 to M-11)', 'Final mission':'M-11 Nov 2034 Falcon Heavy', 'Programme':'Schedule close-out complete', 'Post-2035':'ISRU sustains Gateway operations' }},
+    ]
+  },
+  {
+    id: 'logistics', label: 'Logistics\n& MILP', color: '#922015', alt: true,
+    milestones: [
+      { yr: 2026.4, label: ['Framework','scope defined'], color: C.ph1,
+        tip: { title:'MILP Framework Scope Defined', Phase:'Phase 1', Scope:'84-month planning horizon', Variables:'Binary launch x[t], cargo q[t], inventory I[t]', Constraints:'SS floor, capacity, budget, dual-provider', 'CER base':'NASA/GAO dataset 7 CERs' }},
+      { yr: 2027.8, label: ['S3 Full Lean','realised Yr 2','PCE=30.7%'], badge: 'S3', color: C.gold, badgeColor: C.goldd,
+        tip: { title:'S3 — Full Lean Realised Year 2', Phase:'Phase 1', 'Current PCE':'21.1% (109-day lead time)', 'Future PCE':'30.7% (75-day lead time)', 'VA time':'23d (unchanged)', 'NVA reduction':'86d → 52d (−34d, −31%)', 'Kaizen':'AI planning + parallel cargo + RFID stow' }},
+      { yr: 2029.0, label: ['Multi-provider','Vulcan Centaur','+ FH active'], color: C.ph2,
+        tip: { title:'Multi-Provider Contract Activated', Phase:'Phase 2', Providers:'Falcon Heavy (×9) + Vulcan Centaur (×2)', 'VC missions':'M-4 Aug 2029 + M-9 Nov 2033', 'VC saving':'$32.4M total (2 × $16.2M)', 'Risk':'P_fail 32% → 18.4% (dual provider)', 'MILP':'Solver selects VC when cargo ≤ 3,200 kg' }},
+      { yr: 2030.3, label: ['Phase 1 complete','$548.7M','5 missions'], color: C.ph1,
+        tip: { title:'Phase 1 Complete — $548.7M', 'Missions':'M-1 to M-5 (May 2028 – Apr 2030)', 'Vehicles':'4× Falcon Heavy + 1× Vulcan Centaur', 'Total cost':'$548.7M', 'ISRU':'Precursor hardware delivered (M-3)', 'Status':'All inventory ≥ 193 kg SS' }},
+      { yr: 2032.8, label: ['Phase 2 MILP','$698.3M','validated'], color: C.ph2,
+        tip: { title:'Phase 2 MILP Validated — $698.3M', 'Missions':'M-6 to M-11 (Feb 2031 – Nov 2034)', 'Key gap':'16-month M-6→M-7 (ISRU 75% enabled)', 'Vehicles':'5× FH + 1× VC', 'ISRU benefit':'Intervals extended: 10→16→7→10→8→4 mo', 'Total Phase 2':'$698.3M' }},
+    ]
+  },
+  {
+    id: 'isru', label: 'ISRU\nIntegration', color: '#DB5200', alt: false,
+    milestones: [
+      { yr: 2028.2, label: ['ISRU hardware','precursor','commissioned'], color: C.orange,
+        tip: { title:'ISRU Precursor Hardware Commissioned', Phase:'Phase 1/2 boundary', 'Delivered by':'M-3 Falcon Heavy Mar 2029', 'Hardware':'Water extraction + regolith processing', 'Output at commission':'0 kg/mo (Year 1–2)', 'Ramp formula':'642 × min(1, 0.25+(yr−2)×0.375) kg/mo' }},
+      { yr: 2030.1, label: ['ISRU 25%','~160 kg/mo','M-5 trigger'], color: C.orange,
+        tip: { title:'ISRU 25% Active — 160 kg/mo', Phase:'Phase 2', Output:'~160 kg/mo (Year 3 start)', 'Net demand':'835 − 160 = 675 kg/mo', 'Triggered by':'M-5 Apr 2030 commissioning', 'Effect':'Extends M-5→M-6 interval to 10 months' }},
+      { yr: 2031.5, label: ['ISRU 75%','~480 kg/mo','16-mo gap!'], color: C.orange,
+        tip: { title:'ISRU 75% — Enables 16-Month Gap ⚡', Phase:'Phase 3', Output:'~480 kg/mo (Year 4)', 'Net demand':'835 − 480 = 355 kg/mo', 'KEY WIN':'Longest gap in schedule: M-6(Feb 2031)→M-7(Jun 2032)', 'Saving':'Eliminates ~2 launches vs heuristic baseline', 'Safety stock':'193 kg maintained throughout' }},
+      { yr: 2033.2, label: ['ISRU FULL','642 kg/mo','Year 6'], color: C.ph2,
+        tip: { title:'ISRU Full Maturity — 642 kg/mo', Phase:'Phase 3', Output:'642 kg/mo (100% capacity)', 'Net demand':'835 − 642 = 193 kg/mo = Safety Stock only', Year:'Year 6 (2033)', 'Effect':'Earth supply = SS top-up only', 'VC selected':'M-9 Nov 2033 — VC sufficient at net demand' }},
+      { yr: 2035.0, label: ['ISRU sustains','Gateway ops','post-2035'], color: C.ph2,
+        tip: { title:'ISRU Sustains Gateway Post-2035', Status:'Full ISRU maturity maintained', Output:'642 kg/mo indefinitely', 'Net demand':'193 kg/mo (SS floor only)', 'Significance':'Gateway operationally sustainable beyond planning horizon' }},
+    ]
+  },
+  {
+    id: 'risk', label: 'Risk &\nResilience', color: '#6b1610', alt: true,
+    milestones: [
+      { yr: 2026.5, label: ['Risk baseline','P_fail=32%','single provider'], color: C.ph3,
+        tip: { title:'Risk Baseline Established', Phase:'Phase 1', 'P_fail':'32% (single provider)', 'Provider':'Falcon Heavy only', 'SS model':'k_s=1.65, SS=193 kg, 95% SL', 'Hold cost':'$11.9M/yr annual holding cost', 'Stockout risk':'4.9% 30-day risk' }},
+      { yr: 2029.0, label: ['Dual-provider','P_fail→18.4%','VC activated'], color: C.gold, badgeColor: C.goldd,
+        tip: { title:'Dual-Provider Resilience Activated', Phase:'Phase 2', 'P_fail (before)':'32% (FH single provider)', 'P_fail (after)':'18.4% (FH + VC dual provider)', 'VC mission':'M-4 Aug 2029 (first VC)', 'Saving':'$16.2M vs FH on this slot', 'Source':'CER-7 reliability model' }},
+      { yr: 2031.0, label: ['S4 DECISION','GATE — Starship','pending data'], badge: 'S4', color: C.ph3, badgeColor: C.ph3,
+        tip: { title:'S4 Decision Gate — Starship Commercial Reliability', Phase:'Phase 3 entry gate (2031)', Scenario:'S4: Add SpaceX Starship as 3rd provider', 'Decision trigger':'Starship commercial reliability data available', 'If proceed':'Triple-provider → P_fail could fall below 10%', 'If defer':'Continue FH + VC dual-provider strategy', 'Data needed':'≥5 successful commercial flights by 2031', 'Impact':'Potential additional $40–60M saving if certified' }},
+      { yr: 2032.8, label: ['Resilience','target met','95% SL'], color: C.ph2,
+        tip: { title:'Resilience Target Achieved', Phase:'Phase 3', 'Service Level':'95% (k_s=1.65)', 'Safety Stock':'SS = 193 kg maintained all 84 months', 'Dual provider':'P_fail = 18.4% sustained', 'Monte Carlo':'P10=$1,210M | P50=$1,472M | P90=$1,820M', 'Sobol S1':'Dominant: FH launch cost (S1=0.412)' }},
+      { yr: 2034.2, label: ['SS model','k_s=1.65','validated'], color: C.ph1,
+        tip: { title:'Safety Stock Model Fully Validated', 'Formula':'SS = k_s × σ_d × √L_r', 'Values':'1.65 × 21.4 × √30 = 193 kg', 'Service Level':'95% (4.9% stockout risk)', 'Annual Hold':'$11.9M/yr', 'Verified':'10,240 Monte Carlo trials — never breached' }},
+    ]
+  },
+];
+
+// ── Build swim lanes ───────────────────────────────────────────────────────
+const lanesEl = document.getElementById('swimLanes');
+
+LANES.forEach(lane => {
+  const row = document.createElement('div');
+  row.className = 'swim-lane';
+
+  // Label
+  const lbl = document.createElement('div');
+  lbl.className = 'lane-label';
+  lbl.style.background = lane.color;
+  const sp = document.createElement('span');
+  sp.innerHTML = lane.label.replace('\n','<br>');
+  lbl.appendChild(sp);
+  row.appendChild(lbl);
+
+  // Body
+  const body = document.createElement('div');
+  body.className = 'lane-body' + (lane.alt ? ' alt' : '');
+
+  // Grid overlay
+  const grid = document.createElement('div');
+  grid.className = 'grid-overlay';
+  for (let y = 0; y < YR_SPAN; y++) {
+    const gc = document.createElement('div'); gc.className = 'grid-yr'; grid.appendChild(gc);
+  }
+  body.appendChild(grid);
+
+  // Phase dividers
+  [2028, 2031].forEach(yr => {
+    const div = document.createElement('div');
+    div.className = 'phase-divider';
+    div.style.left = pct(yr) + '%';
+    body.appendChild(div);
+  });
+
+  // Milestones
+  lane.milestones.forEach((ms, idx) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'milestone';
+    wrap.style.left = pct(ms.yr) + '%';
+    wrap.style.top  = '8px';
+
+    // Badge
+    if (ms.badge) {
+      const badge = document.createElement('div');
+      badge.className = 's-badge';
+      badge.style.background = ms.badgeColor || ms.color;
+      badge.textContent = ms.badge;
+      wrap.appendChild(badge);
+    }
+
+    // Label (alternating above/below)
+    const showAbove = idx % 2 === 0;
+    const dw = document.createElement('div');
+    dw.className = 'diamond-wrap';
+
+    if (showAbove) {
+      const lbox = document.createElement('div');
+      lbox.className = 'm-label';
+      lbox.style.borderColor = ms.color;
+      lbox.innerHTML = ms.label.map(l => `<div>${l}</div>`).join('');
+      dw.appendChild(lbox);
+      const stem = document.createElement('div');
+      stem.className = 'm-stem'; stem.style.height = '10px';
+      dw.appendChild(stem);
+    }
+
+    const dia = document.createElement('div');
+    dia.className = 'diamond';
+    dia.style.background = ms.color;
+    dia.style.borderColor = shadeColor(ms.color, -30);
+    dw.appendChild(dia);
+
+    if (!showAbove) {
+      const stem = document.createElement('div');
+      stem.className = 'm-stem'; stem.style.height = '10px';
+      dw.appendChild(stem);
+      const lbox = document.createElement('div');
+      lbox.className = 'm-label';
+      lbox.style.borderColor = ms.color;
+      lbox.innerHTML = ms.label.map(l => `<div>${l}</div>`).join('');
+      dw.appendChild(lbox);
+    }
+
+    wrap.appendChild(dw);
+    body.appendChild(wrap);
+
+    // Tooltip
+    wrap.addEventListener('mousemove', e => showTip(e, ms.tip));
+    wrap.addEventListener('mouseleave', hideTip);
+  });
+
+  row.appendChild(body);
+  lanesEl.appendChild(row);
+});
+
+// ── Tooltip ────────────────────────────────────────────────────────────────
+const tooltip = document.getElementById('tooltip');
+function showTip(e, tip) {
+  if (!tip) return;
+  let html = `<h4>${tip.title}</h4>`;
+  Object.entries(tip).forEach(([k,v]) => {
+    if (k === 'title') return;
+    html += `<div class="t-row"><span class="t-k">${k}</span><span class="t-v">${v}</span></div>`;
+  });
+  tooltip.innerHTML = html;
+  tooltip.style.display = 'block';
+  posTip(e);
+}
+function posTip(e) {
+  const x = e.clientX+14, y = e.clientY+14;
+  const tw = tooltip.offsetWidth, th = tooltip.offsetHeight;
+  tooltip.style.left = (x+tw>window.innerWidth ? x-tw-20 : x)+'px';
+  tooltip.style.top  = (y+th>window.innerHeight ? y-th-20 : y)+'px';
+}
+document.addEventListener('mousemove', e => { if(tooltip.style.display==='block') posTip(e); });
+function hideTip() { tooltip.style.display = 'none'; }
+
+// ── Drag to scroll ─────────────────────────────────────────────────────────
+const wrap = document.querySelector('.roadmap-wrap');
+let isDown = false, startX, scrollLeft;
+wrap.addEventListener('mousedown', e => {
+  if (e.target.closest('.milestone')) return;
+  isDown = true; wrap.classList.add('dragging');
+  startX = e.pageX - wrap.offsetLeft;
+  scrollLeft = wrap.scrollLeft;
+});
+wrap.addEventListener('mouseleave', () => { isDown = false; wrap.classList.remove('dragging'); });
+wrap.addEventListener('mouseup',    () => { isDown = false; wrap.classList.remove('dragging'); });
+wrap.addEventListener('mousemove',  e => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - wrap.offsetLeft;
+  wrap.scrollLeft = scrollLeft - (x - startX);
+});
+
+function shadeColor(hex, pct) {
+  const n = parseInt(hex.slice(1),16);
+  const r = Math.max(0,Math.min(255,(n>>16)+pct));
+  const g = Math.max(0,Math.min(255,((n>>8)&0xff)+pct));
+  const b = Math.max(0,Math.min(255,(n&0xff)+pct));
+  return '#'+((r<<16)|(g<<8)|b).toString(16).padStart(6,'0');
+}
+</script>
+</body>
+</html>

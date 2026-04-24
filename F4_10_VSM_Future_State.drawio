@@ -1,0 +1,338 @@
+<mxGraphModel dx="1422" dy="762" grid="0" gridSize="5" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1654" pageHeight="700" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- ══════════════════════════════════════════════════════════════
+         NASA/Berkeley Earth Colour Palette
+         BG      = #F0F0F0   light grey background
+         DBLUE   = #222288   NASA deep blue  (process boxes, arrows, lines)
+         RED     = #CC0000   NASA red        (NVA wait labels)
+         GREEN   = #1A7A3C   NASA green      (kaizen bursts, VA labels)
+         ORANGE  = #DB5200   NASA orange     (push arrows)
+         GOLD    = #E6C44D   NASA gold       (PCE summary, CT labels)
+         BLACK   = #000000
+    ══════════════════════════════════════════════════════════════ -->
+
+    <!-- Background — NASA grey -->
+    <mxCell id="bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F0F0F0;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="0" y="0" width="1654" height="700" as="geometry" />
+    </mxCell>
+
+    <!-- Title bar — NASA deep blue -->
+    <mxCell id="title_bar" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#222288;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="0" y="0" width="1654" height="52" as="geometry" />
+    </mxCell>
+    <mxCell id="title" value="Figure 4.10  —  Future State Value Stream Map  (Target: 75-day Lead Time, PCE 30.7%)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;strokeColor=none;fillColor=none;fontSize=14;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+      <mxGeometry x="100" y="4" width="1454" height="26" as="geometry" />
+    </mxCell>
+    <mxCell id="sub" value="34-day reduction (31%) vs Current State  |  VA = 23d  |  NVA = 52d  |  PCE = 30.7%  |  EG7302 MEM — Jagathguru Pazhanaivel (249057008)  |  Supervisor: Dr. Udu Amadi" style="text;html=1;align=center;verticalAlign=middle;resizable=0;strokeColor=none;fillColor=none;fontSize=9;fontColor=#AACCFF;" vertex="1" parent="1">
+      <mxGeometry x="100" y="30" width="1454" height="18" as="geometry" />
+    </mxCell>
+
+    <!-- Section divider line -->
+    <mxCell id="div1" value="" style="line;html=1;strokeColor=#222288;strokeWidth=2;" vertex="1" parent="1">
+      <mxGeometry x="0" y="52" width="1654" height="10" as="geometry" />
+    </mxCell>
+
+    <!-- ══ SUPPLIER — NASA deep blue factory ══ -->
+    <mxCell id="supplier" value="Mission&#xa;Authority" style="shape=mxgraph.lean_mapping.external_source;fillColor=#222288;strokeColor=#000000;fontColor=#FFFFFF;fontSize=10;fontStyle=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="18" y="90" width="82" height="82" as="geometry" />
+    </mxCell>
+
+    <!-- ══ CUSTOMER — NASA green factory ══ -->
+    <mxCell id="customer" value="Gateway&#xa;Crew" style="shape=mxgraph.lean_mapping.external_source;fillColor=#1A7A3C;strokeColor=#000000;fontColor=#FFFFFF;fontSize=10;fontStyle=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="1554" y="90" width="82" height="82" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         PROCESS BOXES — NASA deep blue #222288
+         Each box: header strip + CT row + body text
+         Kaizen bursts: NASA green #1A7A3C with white text
+    ══════════════════════════════════════════════════════════════ -->
+
+    <!-- ── BOX 1: Integrated Planning (AI) — KAIZEN ── -->
+    <mxCell id="box1" value="" style="rounded=0;html=1;fillColor=#222288;strokeColor=#6688CC;strokeWidth=1.5;" vertex="1" parent="1">
+      <mxGeometry x="112" y="90" width="138" height="82" as="geometry" />
+    </mxCell>
+    <!-- Header strip -->
+    <mxCell id="box1_strip" value="" style="rounded=0;html=1;fillColor=#1A1A66;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="112" y="90" width="138" height="22" as="geometry" />
+    </mxCell>
+    <mxCell id="box1_hdr" value="Integrated Planning (AI)" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+      <mxGeometry x="112" y="91" width="138" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="box1_ct" value="CT: 4d" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#E6C44D;" vertex="1" parent="1">
+      <mxGeometry x="112" y="114" width="138" height="18" as="geometry" />
+    </mxCell>
+    <mxCell id="box1_body" value="AI-assisted manifest&#xa;auto-optimisation" style="text;html=1;align=center;fontSize=8;fontColor=#AACCFF;verticalAlign=top;" vertex="1" parent="1">
+      <mxGeometry x="112" y="134" width="138" height="35" as="geometry" />
+    </mxCell>
+    <!-- Kaizen burst 1 — NASA green -->
+    <mxCell id="kai1" value="Kaizen:&#xa;AI Assist +&#xa;Automation" style="shape=mxgraph.lean_mapping.kaizen_lightning_burst;fillColor=#1A7A3C;strokeColor=#0D5C2A;fontColor=#FFFFFF;fontSize=7;fontStyle=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="102" y="8" width="90" height="70" as="geometry" />
+    </mxCell>
+    <mxCell id="kc1" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#0D5C2A;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="kai1" target="box1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Push arrow 1→2 — NASA orange -->
+    <mxCell id="push1" value="PUSH" style="shape=mxgraph.lean_mapping.push_arrow;fillColor=#DB5200;strokeColor=#AA3A00;fontColor=#FFFFFF;fontSize=7;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="258" y="118" width="34" height="26" as="geometry" />
+    </mxCell>
+
+    <!-- ── BOX 2: Concurrent Cargo Integ. — KAIZEN ── -->
+    <mxCell id="box2" value="" style="rounded=0;html=1;fillColor=#222288;strokeColor=#6688CC;strokeWidth=1.5;" vertex="1" parent="1">
+      <mxGeometry x="300" y="90" width="138" height="82" as="geometry" />
+    </mxCell>
+    <mxCell id="box2_strip" value="" style="rounded=0;html=1;fillColor=#1A1A66;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="300" y="90" width="138" height="22" as="geometry" />
+    </mxCell>
+    <mxCell id="box2_hdr" value="Concurrent Cargo Integ." style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+      <mxGeometry x="300" y="91" width="138" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="box2_ct" value="CT: 6d" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#E6C44D;" vertex="1" parent="1">
+      <mxGeometry x="300" y="114" width="138" height="18" as="geometry" />
+    </mxCell>
+    <mxCell id="box2_body" value="Parallel cargo streams&#xa;simultaneous prep" style="text;html=1;align=center;fontSize=8;fontColor=#AACCFF;verticalAlign=top;" vertex="1" parent="1">
+      <mxGeometry x="300" y="134" width="138" height="35" as="geometry" />
+    </mxCell>
+    <mxCell id="kai2" value="Kaizen:&#xa;Parallel&#xa;Cargo Preps" style="shape=mxgraph.lean_mapping.kaizen_lightning_burst;fillColor=#1A7A3C;strokeColor=#0D5C2A;fontColor=#FFFFFF;fontSize=7;fontStyle=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="290" y="8" width="90" height="70" as="geometry" />
+    </mxCell>
+    <mxCell id="kc2" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#0D5C2A;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="kai2" target="box2">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Push arrow 2→3 -->
+    <mxCell id="push2" value="PUSH" style="shape=mxgraph.lean_mapping.push_arrow;fillColor=#DB5200;strokeColor=#AA3A00;fontColor=#FFFFFF;fontSize=7;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="446" y="118" width="34" height="26" as="geometry" />
+    </mxCell>
+
+    <!-- ── BOX 3: Lean Launch Prep — KAIZEN ── -->
+    <mxCell id="box3" value="" style="rounded=0;html=1;fillColor=#222288;strokeColor=#6688CC;strokeWidth=1.5;" vertex="1" parent="1">
+      <mxGeometry x="488" y="90" width="138" height="82" as="geometry" />
+    </mxCell>
+    <mxCell id="box3_strip" value="" style="rounded=0;html=1;fillColor=#1A1A66;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="488" y="90" width="138" height="22" as="geometry" />
+    </mxCell>
+    <mxCell id="box3_hdr" value="Lean Launch Prep" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+      <mxGeometry x="488" y="91" width="138" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="box3_ct" value="CT: 4d" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#E6C44D;" vertex="1" parent="1">
+      <mxGeometry x="488" y="114" width="138" height="18" as="geometry" />
+    </mxCell>
+    <mxCell id="box3_body" value="5S launch checklist&#xa;JIT countdown" style="text;html=1;align=center;fontSize=8;fontColor=#AACCFF;verticalAlign=top;" vertex="1" parent="1">
+      <mxGeometry x="488" y="134" width="138" height="35" as="geometry" />
+    </mxCell>
+    <mxCell id="kai3" value="Kaizen:&#xa;Lean&#xa;Scheduling" style="shape=mxgraph.lean_mapping.kaizen_lightning_burst;fillColor=#1A7A3C;strokeColor=#0D5C2A;fontColor=#FFFFFF;fontSize=7;fontStyle=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="478" y="8" width="90" height="70" as="geometry" />
+    </mxCell>
+    <mxCell id="kc3" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#0D5C2A;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="kai3" target="box3">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- PULL Signal 3→4 — NASA deep blue dashed -->
+    <mxCell id="pull_line" value="" style="endArrow=block;endFill=1;startArrow=none;html=1;strokeColor=#222288;strokeWidth=2.5;dashed=1;dashPattern=10 5;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint as="sourcePoint" x="626" y="131" />
+        <mxPoint as="targetPoint" x="676" y="131" />
+      </mxGeometry>
+    </mxCell>
+    <!-- Pull signal label -->
+    <mxCell id="pull_lbl" value="◀ PULL / JIT" style="text;html=1;align=center;fontSize=8;fontStyle=3;fontColor=#222288;" vertex="1" parent="1">
+      <mxGeometry x="618" y="115" width="72" height="14" as="geometry" />
+    </mxCell>
+    <!-- Pull signal arc annotation -->
+    <mxCell id="pull_sig_box" value="JIT replenishment&#xa;signal" style="rounded=1;html=1;fillColor=#E8F0FF;strokeColor=#222288;strokeWidth=1;fontSize=7;fontColor=#222288;arcSize=30;" vertex="1" parent="1">
+      <mxGeometry x="594" y="200" width="120" height="30" as="geometry" />
+    </mxCell>
+
+    <!-- ── BOX 4: Transit to Gateway ── -->
+    <mxCell id="box4" value="" style="rounded=0;html=1;fillColor=#222288;strokeColor=#6688CC;strokeWidth=1.5;" vertex="1" parent="1">
+      <mxGeometry x="678" y="90" width="138" height="82" as="geometry" />
+    </mxCell>
+    <mxCell id="box4_strip" value="" style="rounded=0;html=1;fillColor=#1A1A66;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="678" y="90" width="138" height="22" as="geometry" />
+    </mxCell>
+    <mxCell id="box4_hdr" value="Transit to Gateway" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+      <mxGeometry x="678" y="91" width="138" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="box4_ct" value="CT: 4d" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#E6C44D;" vertex="1" parent="1">
+      <mxGeometry x="678" y="114" width="138" height="18" as="geometry" />
+    </mxCell>
+    <mxCell id="box4_body" value="Optimised NRHO&#xa;transit trajectory" style="text;html=1;align=center;fontSize=8;fontColor=#AACCFF;verticalAlign=top;" vertex="1" parent="1">
+      <mxGeometry x="678" y="134" width="138" height="35" as="geometry" />
+    </mxCell>
+
+    <!-- Push arrow 4→5 -->
+    <mxCell id="push4" value="PUSH" style="shape=mxgraph.lean_mapping.push_arrow;fillColor=#DB5200;strokeColor=#AA3A00;fontColor=#FFFFFF;fontSize=7;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="824" y="118" width="34" height="26" as="geometry" />
+    </mxCell>
+
+    <!-- ── BOX 5: Auto Docking — KAIZEN ── -->
+    <mxCell id="box5" value="" style="rounded=0;html=1;fillColor=#222288;strokeColor=#6688CC;strokeWidth=1.5;" vertex="1" parent="1">
+      <mxGeometry x="866" y="90" width="138" height="82" as="geometry" />
+    </mxCell>
+    <mxCell id="box5_strip" value="" style="rounded=0;html=1;fillColor=#1A1A66;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="866" y="90" width="138" height="22" as="geometry" />
+    </mxCell>
+    <mxCell id="box5_hdr" value="Auto Docking" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+      <mxGeometry x="866" y="91" width="138" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="box5_ct" value="CT: 2d" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#E6C44D;" vertex="1" parent="1">
+      <mxGeometry x="866" y="114" width="138" height="18" as="geometry" />
+    </mxCell>
+    <mxCell id="box5_body" value="Autonomous berthing&#xa;robotic unloading" style="text;html=1;align=center;fontSize=8;fontColor=#AACCFF;verticalAlign=top;" vertex="1" parent="1">
+      <mxGeometry x="866" y="134" width="138" height="35" as="geometry" />
+    </mxCell>
+    <mxCell id="kai5" value="Kaizen:&#xa;Autonomous&#xa;Docking" style="shape=mxgraph.lean_mapping.kaizen_lightning_burst;fillColor=#1A7A3C;strokeColor=#0D5C2A;fontColor=#FFFFFF;fontSize=7;fontStyle=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="856" y="8" width="90" height="70" as="geometry" />
+    </mxCell>
+    <mxCell id="kc5" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#0D5C2A;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="kai5" target="box5">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Push arrow 5→6 -->
+    <mxCell id="push5" value="PUSH" style="shape=mxgraph.lean_mapping.push_arrow;fillColor=#DB5200;strokeColor=#AA3A00;fontColor=#FFFFFF;fontSize=7;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="1012" y="118" width="34" height="26" as="geometry" />
+    </mxCell>
+
+    <!-- ── BOX 6: RFID-track Stow ── -->
+    <mxCell id="box6" value="" style="rounded=0;html=1;fillColor=#222288;strokeColor=#6688CC;strokeWidth=1.5;" vertex="1" parent="1">
+      <mxGeometry x="1054" y="90" width="138" height="82" as="geometry" />
+    </mxCell>
+    <mxCell id="box6_strip" value="" style="rounded=0;html=1;fillColor=#1A1A66;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="1054" y="90" width="138" height="22" as="geometry" />
+    </mxCell>
+    <mxCell id="box6_hdr" value="RFID-track Stow" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+      <mxGeometry x="1054" y="91" width="138" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="box6_ct" value="CT: 2d" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#E6C44D;" vertex="1" parent="1">
+      <mxGeometry x="1054" y="114" width="138" height="18" as="geometry" />
+    </mxCell>
+    <mxCell id="box6_body" value="RFID auto-tracking&#xa;digital stow record" style="text;html=1;align=center;fontSize=8;fontColor=#AACCFF;verticalAlign=top;" vertex="1" parent="1">
+      <mxGeometry x="1054" y="134" width="138" height="35" as="geometry" />
+    </mxCell>
+    <!-- Kaizen burst 6 — RFID improvement -->
+    <mxCell id="kai6" value="Kaizen:&#xa;RFID Digital&#xa;Tracking" style="shape=mxgraph.lean_mapping.kaizen_lightning_burst;fillColor=#1A7A3C;strokeColor=#0D5C2A;fontColor=#FFFFFF;fontSize=7;fontStyle=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="1044" y="8" width="90" height="70" as="geometry" />
+    </mxCell>
+    <mxCell id="kc6" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#0D5C2A;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="kai6" target="box6">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Push arrow 6→7 -->
+    <mxCell id="push6" value="PUSH" style="shape=mxgraph.lean_mapping.push_arrow;fillColor=#DB5200;strokeColor=#AA3A00;fontColor=#FFFFFF;fontSize=7;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="1200" y="118" width="34" height="26" as="geometry" />
+    </mxCell>
+
+    <!-- ── BOX 7: JIT Fulfillment ── -->
+    <mxCell id="box7" value="" style="rounded=0;html=1;fillColor=#222288;strokeColor=#6688CC;strokeWidth=1.5;" vertex="1" parent="1">
+      <mxGeometry x="1242" y="90" width="138" height="82" as="geometry" />
+    </mxCell>
+    <mxCell id="box7_strip" value="" style="rounded=0;html=1;fillColor=#1A1A66;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="1242" y="90" width="138" height="22" as="geometry" />
+    </mxCell>
+    <mxCell id="box7_hdr" value="JIT Fulfillment" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
+      <mxGeometry x="1242" y="91" width="138" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="box7_ct" value="CT: 1d" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#E6C44D;" vertex="1" parent="1">
+      <mxGeometry x="1242" y="114" width="138" height="18" as="geometry" />
+    </mxCell>
+    <mxCell id="box7_body" value="On-demand issue&#xa;zero buffer stock" style="text;html=1;align=center;fontSize=8;fontColor=#AACCFF;verticalAlign=top;" vertex="1" parent="1">
+      <mxGeometry x="1242" y="134" width="138" height="35" as="geometry" />
+    </mxCell>
+
+    <!-- Supplier → Box1 -->
+    <mxCell id="s_arr" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#222288;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="supplier" target="box1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <!-- Box7 → Customer -->
+    <mxCell id="c_arr" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#1A7A3C;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="box7" target="customer">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         ZIGZAG LEAD TIME LINE — NASA deep blue
+         Wait times: 7, 10, 16, 4, 6, 5, 4 days | scale 3px/day
+         NVA = 52d  VA = 23d  Total = 75d
+    ══════════════════════════════════════════════════════════════ -->
+    <mxCell id="zigzag" value="" style="endArrow=none;html=1;strokeColor=#222288;strokeWidth=2.5;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint as="sourcePoint" x="55" y="260" />
+        <mxPoint as="targetPoint" x="1545" y="260" />
+        <Array as="points">
+          <!-- Step 1: wait 7d, depth 21px -->
+          <mxPoint x="112" y="260" /><mxPoint x="112" y="281" /><mxPoint x="250" y="281" /><mxPoint x="250" y="260" />
+          <!-- Step 2: wait 10d, depth 30px -->
+          <mxPoint x="300" y="260" /><mxPoint x="300" y="290" /><mxPoint x="438" y="290" /><mxPoint x="438" y="260" />
+          <!-- Step 3: wait 16d, depth 48px -->
+          <mxPoint x="488" y="260" /><mxPoint x="488" y="308" /><mxPoint x="626" y="308" /><mxPoint x="626" y="260" />
+          <!-- Step 4: wait 4d, depth 12px -->
+          <mxPoint x="678" y="260" /><mxPoint x="678" y="272" /><mxPoint x="816" y="272" /><mxPoint x="816" y="260" />
+          <!-- Step 5: wait 6d, depth 18px -->
+          <mxPoint x="866" y="260" /><mxPoint x="866" y="278" /><mxPoint x="1004" y="278" /><mxPoint x="1004" y="260" />
+          <!-- Step 6: wait 5d, depth 15px -->
+          <mxPoint x="1054" y="260" /><mxPoint x="1054" y="275" /><mxPoint x="1192" y="275" /><mxPoint x="1192" y="260" />
+          <!-- Step 7: wait 4d, depth 12px -->
+          <mxPoint x="1242" y="260" /><mxPoint x="1242" y="272" /><mxPoint x="1380" y="272" /><mxPoint x="1380" y="260" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+
+    <!-- NVA Wait Labels — NASA red, below each dip -->
+    <mxCell id="wt1" value="7d" style="text;html=1;align=center;fontSize=10;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1"><mxGeometry x="161" y="283" width="40" height="18" as="geometry" /></mxCell>
+    <mxCell id="wt2" value="10d" style="text;html=1;align=center;fontSize=10;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1"><mxGeometry x="349" y="292" width="40" height="18" as="geometry" /></mxCell>
+    <mxCell id="wt3" value="16d" style="text;html=1;align=center;fontSize=10;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1"><mxGeometry x="537" y="310" width="40" height="18" as="geometry" /></mxCell>
+    <mxCell id="wt4" value="4d" style="text;html=1;align=center;fontSize=10;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1"><mxGeometry x="727" y="274" width="40" height="18" as="geometry" /></mxCell>
+    <mxCell id="wt5" value="6d" style="text;html=1;align=center;fontSize=10;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1"><mxGeometry x="915" y="280" width="40" height="18" as="geometry" /></mxCell>
+    <mxCell id="wt6" value="5d" style="text;html=1;align=center;fontSize=10;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1"><mxGeometry x="1103" y="277" width="40" height="18" as="geometry" /></mxCell>
+    <mxCell id="wt7" value="4d" style="text;html=1;align=center;fontSize=10;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1"><mxGeometry x="1291" y="274" width="40" height="18" as="geometry" /></mxCell>
+
+    <!-- VA CT Labels — NASA green, above zigzag -->
+    <mxCell id="ct1" value="VA=4d" style="text;html=1;align=center;fontSize=8;fontStyle=1;fontColor=#1A7A3C;" vertex="1" parent="1"><mxGeometry x="161" y="242" width="40" height="16" as="geometry" /></mxCell>
+    <mxCell id="ct2" value="VA=6d" style="text;html=1;align=center;fontSize=8;fontStyle=1;fontColor=#1A7A3C;" vertex="1" parent="1"><mxGeometry x="349" y="242" width="40" height="16" as="geometry" /></mxCell>
+    <mxCell id="ct3" value="VA=4d" style="text;html=1;align=center;fontSize=8;fontStyle=1;fontColor=#1A7A3C;" vertex="1" parent="1"><mxGeometry x="537" y="242" width="40" height="16" as="geometry" /></mxCell>
+    <mxCell id="ct4" value="VA=4d" style="text;html=1;align=center;fontSize=8;fontStyle=1;fontColor=#1A7A3C;" vertex="1" parent="1"><mxGeometry x="727" y="242" width="40" height="16" as="geometry" /></mxCell>
+    <mxCell id="ct5" value="VA=2d" style="text;html=1;align=center;fontSize=8;fontStyle=1;fontColor=#1A7A3C;" vertex="1" parent="1"><mxGeometry x="915" y="242" width="40" height="16" as="geometry" /></mxCell>
+    <mxCell id="ct6" value="VA=2d" style="text;html=1;align=center;fontSize=8;fontStyle=1;fontColor=#1A7A3C;" vertex="1" parent="1"><mxGeometry x="1103" y="242" width="40" height="16" as="geometry" /></mxCell>
+    <mxCell id="ct7" value="VA=1d" style="text;html=1;align=center;fontSize=8;fontStyle=1;fontColor=#1A7A3C;" vertex="1" parent="1"><mxGeometry x="1291" y="242" width="40" height="16" as="geometry" /></mxCell>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         LEAD TIME ARROW — NASA deep blue
+    ══════════════════════════════════════════════════════════════ -->
+    <mxCell id="lt_arrow" value="Total Lead Time = 75 days  ( ↓ 34 days | −31% vs Current State )" style="endArrow=block;startArrow=block;endFill=1;startFill=1;html=1;strokeColor=#222288;strokeWidth=3;fontSize=12;fontStyle=1;fontColor=#222288;align=center;verticalAlign=bottom;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry">
+        <mxPoint as="sourcePoint" x="55" y="380" />
+        <mxPoint as="targetPoint" x="1545" y="380" />
+      </mxGeometry>
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         PCE SUMMARY BOX — NASA gold
+    ══════════════════════════════════════════════════════════════ -->
+    <mxCell id="pce_box" value="PCE = 30.7%   |   VA Time = 23d   |   NVA Time = 52d   |   Total Lead Time = 75 days" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6C44D;strokeColor=#AA8800;fontSize=12;fontStyle=1;fontColor=#1A1A00;arcSize=15;" vertex="1" parent="1">
+      <mxGeometry x="420" y="408" width="814" height="44" as="geometry" />
+    </mxCell>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         IMPROVEMENT SUMMARY — NASA blue panel
+    ══════════════════════════════════════════════════════════════ -->
+    <mxCell id="imp_bar" value="" style="rounded=1;html=1;fillColor=#222288;strokeColor=none;arcSize=5;" vertex="1" parent="1">
+      <mxGeometry x="55" y="466" width="1544" height="34" as="geometry" />
+    </mxCell>
+    <mxCell id="imp_txt" value="▲  Improvements: Step 1 — AI Planning  |  Step 2 — Parallel Cargo  |  Step 3 — Lean Launch  |  Step 4 — PULL/JIT Signal  |  Step 5 — Auto Docking  |  Step 6 — RFID Stow  |  Step 7 — JIT Fulfillment" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#E6C44D;" vertex="1" parent="1">
+      <mxGeometry x="55" y="474" width="1544" height="18" as="geometry" />
+    </mxCell>
+
+    <!-- ══ LEGEND ══ -->
+    <mxCell id="leg_bg" value="" style="rounded=1;html=1;fillColor=#FFFFFF;strokeColor=#CCCCCC;strokeWidth=1;arcSize=5;" vertex="1" parent="1">
+      <mxGeometry x="55" y="512" width="820" height="28" as="geometry" />
+    </mxCell>
+    <mxCell id="leg1" value="■  NASA Deep Blue = Process Step    ■  NASA Green = Kaizen / Improvement    ■  Gold = CT (Value-Added)    ■  Red = NVA wait time    ●  Dashed = PULL signal" style="text;html=1;align=left;fontSize=8;fontColor=#333333;" vertex="1" parent="1">
+      <mxGeometry x="62" y="519" width="806" height="14" as="geometry" />
+    </mxCell>
+
+  </root>
+</mxGraphModel>
