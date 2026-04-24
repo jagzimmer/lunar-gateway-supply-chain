@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MILP Optimal Resupply Schedule 2028–2035</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f0f0; padding: 20px; }
+
+  .container { max-width: 1400px; margin: 0 auto; background: #fff; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); overflow: hidden; }
+
+  .header { background: #1a1a4e; color: #fff; padding: 20px 30px; }
+  .header h1 { font-size: 18px; font-weight: 700; letter-spacing: 0.5px; }
+
+  .stats-bar { display: flex; gap: 0; border-bottom: 2px solid #e0e0e0; }
+  .stat { flex: 1; padding: 12px 20px; text-align: center; border-right: 1px solid #e0e0e0; }
+  .stat:last-child { border-right: none; }
+  .stat-value { font-size: 20px; font-weight: 700; color: #1a1a4e; }
+  .stat-label { font-size: 10px; color: #666; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .stat.saving .stat-value { color: #27ae60; }
+
+  .legend { display: flex; gap: 20px; padding: 12px 30px; background: #f8f8f8; border-bottom: 1px solid #ddd; align-items: center; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #333; }
+  .legend-dot { width: 16px; height: 16px; border-radius: 3px; }
+  .l-fh { background: #1a1a8c; }
+  .l-vc { background: #cc2200; }
+
+  .gantt-wrapper { overflow-x: auto; padding: 0; }
+  .gantt { min-width: 900px; }
+
+  /* Timeline header */
+  .timeline-header { display: flex; background: #1a1a4e; color: #fff; position: sticky; top: 0; z-index: 10; }
+  .row-label-header { width: 280px; min-width: 280px; padding: 10px 16px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; border-right: 2px solid #3a3a7e; }
+  .year-cols { flex: 1; display: flex; }
+  .year-col { flex: 1; text-align: center; padding: 10px 4px; font-size: 12px; font-weight: 700; border-right: 1px solid #3a3a7e; letter-spacing: 1px; }
+
+  /* Rows */
+  .row { display: flex; align-items: stretch; border-bottom: 1px solid #e8e8e8; min-height: 40px; transition: background 0.15s; }
+  .row:hover { background: #f5f8ff; }
+  .row.section-header { background: #e8edf5; min-height: 36px; }
+  .row.section-header .row-label { font-weight: 700; font-size: 12px; color: #1a1a4e; text-transform: uppercase; letter-spacing: 0.3px; }
+
+  .row-label { width: 280px; min-width: 280px; padding: 8px 16px; font-size: 12px; color: #333; display: flex; align-items: center; border-right: 2px solid #ddd; line-height: 1.3; }
+  .row-label .mission-num { font-weight: 700; color: #1a1a4e; margin-right: 6px; }
+  .row-label .vehicle { font-size: 10px; color: #888; display: block; }
+
+  .row-chart { flex: 1; position: relative; display: flex; align-items: center; background: #fafafa; padding: 6px 0; }
+
+  /* Year grid lines */
+  .grid-lines { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; display: flex; }
+  .grid-line { flex: 1; border-right: 1px dashed #ddd; }
+
+  /* Bars */
+  .bar { position: absolute; height: 22px; border-radius: 4px; cursor: pointer; transition: filter 0.15s, transform 0.1s; display: flex; align-items: center; justify-content: center; overflow: hidden; white-space: nowrap; }
+  .bar:hover { filter: brightness(1.15); transform: scaleY(1.08); z-index: 5; }
+  .bar-fh { background: linear-gradient(135deg, #2222aa, #1a1a8c); border: 1px solid #1a1a6e; }
+  .bar-vc { background: linear-gradient(135deg, #dd2200, #aa1100); border: 1px solid #881100; }
+
+  .bar-label { color: #fff; font-size: 9px; font-weight: 600; padding: 0 5px; text-overflow: ellipsis; overflow: hidden; text-shadow: 0 1px 2px rgba(0,0,0,0.5); pointer-events: none; }
+
+  /* Tooltip */
+  .tooltip { position: fixed; background: #1a1a4e; color: #fff; padding: 12px 16px; border-radius: 8px; font-size: 12px; pointer-events: none; z-index: 1000; max-width: 260px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); display: none; line-height: 1.6; }
+  .tooltip h3 { font-size: 13px; color: #aac4ff; margin-bottom: 6px; border-bottom: 1px solid #3a3a6e; padding-bottom: 4px; }
+  .tooltip .t-row { display: flex; justify-content: space-between; gap: 12px; }
+  .tooltip .t-val { font-weight: 700; color: #fff; }
+  .tooltip .t-label { color: #99b4dd; }
+
+  .controls { padding: 12px 30px; background: #f8f8f8; border-top: 2px solid #e0e0e0; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .controls label { font-size: 12px; color: #555; font-weight: 600; }
+  .btn { padding: 7px 16px; border: none; border-radius: 5px; cursor: pointer; font-size: 12px; font-weight: 600; transition: background 0.15s; }
+  .btn-primary { background: #1a1a4e; color: #fff; }
+  .btn-primary:hover { background: #2a2a7e; }
+  .btn-secondary { background: #e0e0e0; color: #333; }
+  .btn-secondary:hover { background: #ccc; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>MILP Optimal Resupply Schedule 2028–2035 &nbsp;|&nbsp; 11 Missions &nbsp;|&nbsp; LCC: $1,247M</h1>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="stats-bar">
+    <div class="stat"><div class="stat-value">$1,472M</div><div class="stat-label">Baseline LCC</div></div>
+    <div class="stat saving"><div class="stat-value">$1,247M</div><div class="stat-label">Optimised LCC</div></div>
+    <div class="stat saving"><div class="stat-value">−$225M</div><div class="stat-label">Saving (−15.3%)</div></div>
+    <div class="stat"><div class="stat-value">11</div><div class="stat-label">Missions (vs 21)</div></div>
+    <div class="stat"><div class="stat-value">193 kg</div><div class="stat-label">Safety Stock (k=1.65)</div></div>
+    <div class="stat"><div class="stat-value">642 kg/mo</div><div class="stat-label">Max ISRU Output</div></div>
+    <div class="stat"><div class="stat-value">95%</div><div class="stat-label">Service Level</div></div>
+  </div>
+
+  <!-- Legend -->
+  <div class="legend">
+    <span style="font-size:11px;font-weight:700;color:#555;margin-right:4px;">LEGEND:</span>
+    <div class="legend-item"><div class="legend-dot l-fh"></div> Falcon Heavy (FH ×9)</div>
+    <div class="legend-item"><div class="legend-dot l-vc"></div> Vulcan Centaur (VC ×2)</div>
+    <div class="legend-item" style="margin-left:auto;font-size:11px;color:#888;">Hover over bars for details</div>
+  </div>
+
+  <!-- Gantt chart -->
+  <div class="gantt-wrapper">
+    <div class="gantt" id="gantt">
+
+      <!-- Timeline header -->
+      <div class="timeline-header">
+        <div class="row-label-header">Work Item</div>
+        <div class="year-cols" id="yearHeader"></div>
+      </div>
+
+      <!-- Rows populated by JS -->
+      <div id="ganttRows"></div>
+
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <label>Actions:</label>
+    <button class="btn btn-primary" onclick="window.print()">Print / Save as PDF</button>
+    <button class="btn btn-secondary" onclick="screenshotHint()">Screenshot tip</button>
+    <span id="screenshotMsg" style="font-size:11px;color:#666;display:none;">Press <strong>Win+Shift+S</strong> (Windows) or <strong>Cmd+Shift+4</strong> (Mac) to capture</span>
+  </div>
+</div>
+
+<!-- Tooltip -->
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+// ── Configuration ────────────────────────────────────────────────────────────
+const START_YEAR = 2028;
+const END_YEAR   = 2035;
+const TOTAL_MONTHS = (END_YEAR - START_YEAR) * 12; // 84 months
+
+function pct(year, month = 1) {
+  const months = (year - START_YEAR) * 12 + (month - 1);
+  return (months / TOTAL_MONTHS) * 100;
+}
+function pctRange(y1, m1, y2, m2) {
+  const left  = pct(y1, m1);
+  const right = pct(y2, m2 + 1);
+  return { left, width: right - left };
+}
+
+// ── Data ─────────────────────────────────────────────────────────────────────
+const rows = [
+  {
+    type: 'section', label: 'PHASE 1 — Earth-Supply Phase'
+  },
+  {
+    label: ['M-1', 'Falcon Heavy — May 2028'],
+    sublabel: '5,000 kg &nbsp;|&nbsp; $113.4M',
+    bar: { style: 'fh', ...pctRange(2028,5,2028,5), tip: { title:'M-1 — First Gateway Resupply', Date:'May 2028', Vehicle:'Falcon Heavy (Expendable)', Cargo:'5,000 kg (full manifest)', Cost:'$113.4M', 'ISRU Offset':'None (Year 1)', Interval:'First mission', 'Inv. after':'~5,193 kg' } }
+  },
+  {
+    label: ['M-2', 'Falcon Heavy — Oct 2028'],
+    sublabel: '5,000 kg &nbsp;|&nbsp; $113.4M',
+    bar: { style: 'fh', ...pctRange(2028,10,2028,10), tip: { title:'M-2 — Second Resupply', Date:'Oct 2028', Vehicle:'Falcon Heavy', Cargo:'5,000 kg', Cost:'$113.4M', 'ISRU Offset':'None (Year 1)', Interval:'+5 months from M-1' } }
+  },
+  {
+    label: ['M-3', 'Falcon Heavy — Mar 2029'],
+    sublabel: '4,800 kg &nbsp;|&nbsp; $111.3M',
+    bar: { style: 'fh', ...pctRange(2029,3,2029,3), tip: { title:'M-3 — ISRU Precursor Delivery', Date:'Mar 2029', Vehicle:'Falcon Heavy', Cargo:'4,800 kg (reduced)', Cost:'$111.3M', 'ISRU Offset':'None (Year 2)', Interval:'+5 months', Note:'ISRU precursor hardware delivered' } }
+  },
+  {
+    label: ['M-4', 'Vulcan Centaur — Aug 2029'],
+    sublabel: '3,200 kg &nbsp;|&nbsp; $97.2M',
+    bar: { style: 'vc', ...pctRange(2029,8,2029,8), tip: { title:'M-4 — Vulcan Centaur (1st VC)', Date:'Aug 2029', Vehicle:'Vulcan Centaur (VC)', Cargo:'3,200 kg', Cost:'$97.2M (saves $16.2M vs FH)', 'ISRU Offset':'None (Year 2)', Interval:'+5 months', 'Risk Reduction':'P_fail 32% → 18.4% (dual provider)' } }
+  },
+  {
+    label: ['M-5', 'Falcon Heavy — Apr 2030'],
+    sublabel: '5,000 kg &nbsp;|&nbsp; $113.4M',
+    bar: { style: 'fh', ...pctRange(2030,4,2030,4), tip: { title:'M-5 — ISRU Commissioning', Date:'Apr 2030', Vehicle:'Falcon Heavy', Cargo:'5,000 kg', Cost:'$113.4M', 'ISRU Offset':'~160 kg/mo begins', Interval:'+8 months', Note:'Closes Phase 1, bridges to Phase 2' } }
+  },
+  { type: 'spacer' },
+  {
+    type: 'section', label: 'PHASE 2 — ISRU-Enabled Phase'
+  },
+  {
+    label: ['M-6', 'Falcon Heavy — Feb 2031'],
+    sublabel: '4,600 kg &nbsp;|&nbsp; $109.2M',
+    bar: { style: 'fh', ...pctRange(2031,2,2031,2), tip: { title:'M-6 — Post-ISRU Transition', Date:'Feb 2031', Vehicle:'Falcon Heavy', Cargo:'4,600 kg', Cost:'$109.2M', 'ISRU Offset':'~320 kg/mo (50% maturity)', 'Net Demand':'835 − 320 = 515 kg/mo', Interval:'+10 months from M-5' } }
+  },
+  {
+    label: ['M-7', 'Falcon Heavy — Jun 2032'],
+    sublabel: '4,400 kg &nbsp;|&nbsp; $107.2M',
+    bar: { style: 'fh', ...pctRange(2032,6,2032,6), tip: { title:'M-7 — Longest Gap (16 months)', Date:'Jun 2032', Vehicle:'Falcon Heavy', Cargo:'4,400 kg', Cost:'$107.2M', 'ISRU Offset':'~480 kg/mo (75% maturity)', 'Net Demand':'835 − 480 = 355 kg/mo', Interval:'+16 months — KEY MILP WIN', Note:'This gap eliminates ~2 launches vs baseline' } }
+  },
+  {
+    label: ['M-8', 'Falcon Heavy — Jan 2033'],
+    sublabel: '4,200 kg &nbsp;|&nbsp; $105.1M',
+    bar: { style: 'fh', ...pctRange(2033,1,2033,1), tip: { title:'M-8 — Steady-State Operations', Date:'Jan 2033', Vehicle:'Falcon Heavy', Cargo:'4,200 kg (lowest FH manifest)', Cost:'$105.1M', 'ISRU Offset':'~560 kg/mo (87% maturity)', 'Net Demand':'835 − 560 = 275 kg/mo', Interval:'+7 months' } }
+  },
+  {
+    label: ['M-9', 'Vulcan Centaur — Nov 2033'],
+    sublabel: '3,200 kg &nbsp;|&nbsp; $97.2M',
+    bar: { style: 'vc', ...pctRange(2033,11,2033,11), tip: { title:'M-9 — ISRU Full Maturity (2nd VC)', Date:'Nov 2033', Vehicle:'Vulcan Centaur', Cargo:'3,200 kg', Cost:'$97.2M (saves $16.2M)', 'ISRU Offset':'642 kg/mo — FULL', 'Net Demand':'835 − 642 = 193 kg/mo (= SS)', Interval:'+10 months' } }
+  },
+  {
+    label: ['M-10', 'Falcon Heavy — Jul 2034'],
+    sublabel: '5,000 kg &nbsp;|&nbsp; $113.4M',
+    bar: { style: 'fh', ...pctRange(2034,7,2034,7), tip: { title:'M-10 — Strategic Buffer Build', Date:'Jul 2034', Vehicle:'Falcon Heavy', Cargo:'5,000 kg', Cost:'$113.4M', 'ISRU Offset':'642 kg/mo (full)', Interval:'+8 months', Note:'Max buffer ahead of final mission' } }
+  },
+  {
+    label: ['M-11', 'Falcon Heavy — Nov 2034'],
+    sublabel: '5,000 kg &nbsp;|&nbsp; $113.4M',
+    bar: { style: 'fh', ...pctRange(2034,11,2034,11), tip: { title:'M-11 — Final Mission', Date:'Nov 2034', Vehicle:'Falcon Heavy', Cargo:'5,000 kg', Cost:'$113.4M', 'ISRU Offset':'642 kg/mo (full)', Interval:'+4 months', Status:'Schedule close-out — programme complete' } }
+  },
+];
+
+// ── Build year header ─────────────────────────────────────────────────────────
+const yearHeader = document.getElementById('yearHeader');
+for (let y = START_YEAR; y <= END_YEAR; y++) {
+  const d = document.createElement('div');
+  d.className = 'year-col';
+  d.textContent = y;
+  yearHeader.appendChild(d);
+}
+
+// ── Build grid lines ──────────────────────────────────────────────────────────
+function makeGridLines() {
+  const gl = document.createElement('div');
+  gl.className = 'grid-lines';
+  for (let y = START_YEAR; y <= END_YEAR; y++) {
+    const d = document.createElement('div');
+    d.className = 'grid-line';
+    gl.appendChild(d);
+  }
+  return gl;
+}
+
+// ── Build rows ────────────────────────────────────────────────────────────────
+const ganttRows = document.getElementById('ganttRows');
+
+rows.forEach(row => {
+  if (row.type === 'spacer') {
+    const sp = document.createElement('div');
+    sp.style.cssText = 'height:6px;background:#f0f0f0;border-bottom:1px solid #ddd;';
+    ganttRows.appendChild(sp);
+    return;
+  }
+
+  const rowEl = document.createElement('div');
+  rowEl.className = 'row' + (row.type === 'section' ? ' section-header' : '');
+
+  const labelEl = document.createElement('div');
+  labelEl.className = 'row-label';
+  if (Array.isArray(row.label)) {
+    labelEl.innerHTML = `<span class="mission-num">${row.label[0]}</span><span>${row.label[1]}${row.sublabel ? `<span class="vehicle">${row.sublabel}</span>` : ''}</span>`;
+  } else {
+    labelEl.innerHTML = row.label;
+  }
+  rowEl.appendChild(labelEl);
+
+  const chartEl = document.createElement('div');
+  chartEl.className = 'row-chart';
+  chartEl.appendChild(makeGridLines());
+
+  if (row.bar) {
+    const bar = document.createElement('div');
+    bar.className = `bar bar-${row.bar.style}`;
+    bar.style.left  = row.bar.left + '%';
+    bar.style.width = Math.max(row.bar.width, 0.8) + '%';
+
+    if (row.bar.width > 3) {
+      const bl = document.createElement('span');
+      bl.className = 'bar-label';
+      bar.appendChild(bl);
+    }
+
+    if (row.bar.tip) {
+      bar.addEventListener('mousemove', e => showTip(e, row.bar.tip));
+      bar.addEventListener('mouseleave', hideTip);
+    }
+    chartEl.appendChild(bar);
+  }
+  rowEl.appendChild(chartEl);
+  ganttRows.appendChild(rowEl);
+});
+
+// ── Tooltip ───────────────────────────────────────────────────────────────────
+const tooltip = document.getElementById('tooltip');
+function showTip(e, tip) {
+  let html = `<h3>${tip.title}</h3>`;
+  Object.entries(tip).forEach(([k, v]) => {
+    if (k === 'title') return;
+    html += `<div class="t-row"><span class="t-label">${k}</span><span class="t-val">${v}</span></div>`;
+  });
+  tooltip.innerHTML = html;
+  tooltip.style.display = 'block';
+  moveTip(e);
+}
+function moveTip(e) {
+  const x = e.clientX + 16;
+  const y = e.clientY + 16;
+  const tw = tooltip.offsetWidth;
+  const th = tooltip.offsetHeight;
+  tooltip.style.left = (x + tw > window.innerWidth ? x - tw - 32 : x) + 'px';
+  tooltip.style.top  = (y + th > window.innerHeight ? y - th - 32 : y) + 'px';
+}
+document.addEventListener('mousemove', e => {
+  if (tooltip.style.display === 'block') moveTip(e);
+});
+function hideTip() { tooltip.style.display = 'none'; }
+
+function screenshotHint() {
+  document.getElementById('screenshotMsg').style.display = 'inline';
+}
+</script>
+
+<style>
+@media print {
+  body { background: #fff; padding: 0; }
+  .container { box-shadow: none; border-radius: 0; }
+  .controls { display: none; }
+  .gantt-wrapper { overflow: visible; }
+  .gantt { min-width: 100%; }
+}
+</style>
+</body>
+</html>
