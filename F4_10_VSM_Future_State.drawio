@@ -1,338 +1,304 @@
-<mxGraphModel dx="1422" dy="762" grid="0" gridSize="5" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1654" pageHeight="700" math="0" shadow="0">
-  <root>
-    <mxCell id="0" />
-    <mxCell id="1" parent="0" />
-
-    <!-- ══════════════════════════════════════════════════════════════
-         NASA/Berkeley Earth Colour Palette
-         BG      = #F0F0F0   light grey background
-         DBLUE   = #222288   NASA deep blue  (process boxes, arrows, lines)
-         RED     = #CC0000   NASA red        (NVA wait labels)
-         GREEN   = #1A7A3C   NASA green      (kaizen bursts, VA labels)
-         ORANGE  = #DB5200   NASA orange     (push arrows)
-         GOLD    = #E6C44D   NASA gold       (PCE summary, CT labels)
-         BLACK   = #000000
-    ══════════════════════════════════════════════════════════════ -->
-
-    <!-- Background — NASA grey -->
-    <mxCell id="bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F0F0F0;strokeColor=none;" vertex="1" parent="1">
-      <mxGeometry x="0" y="0" width="1654" height="700" as="geometry" />
-    </mxCell>
-
-    <!-- Title bar — NASA deep blue -->
-    <mxCell id="title_bar" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#222288;strokeColor=none;" vertex="1" parent="1">
-      <mxGeometry x="0" y="0" width="1654" height="52" as="geometry" />
-    </mxCell>
-    <mxCell id="title" value="Figure 4.10  —  Future State Value Stream Map  (Target: 75-day Lead Time, PCE 30.7%)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;strokeColor=none;fillColor=none;fontSize=14;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
-      <mxGeometry x="100" y="4" width="1454" height="26" as="geometry" />
-    </mxCell>
-    <mxCell id="sub" value="34-day reduction (31%) vs Current State  |  VA = 23d  |  NVA = 52d  |  PCE = 30.7%  |  EG7302 MEM — Jagathguru Pazhanaivel (249057008)  |  Supervisor: Dr. Udu Amadi" style="text;html=1;align=center;verticalAlign=middle;resizable=0;strokeColor=none;fillColor=none;fontSize=9;fontColor=#AACCFF;" vertex="1" parent="1">
-      <mxGeometry x="100" y="30" width="1454" height="18" as="geometry" />
-    </mxCell>
-
-    <!-- Section divider line -->
-    <mxCell id="div1" value="" style="line;html=1;strokeColor=#222288;strokeWidth=2;" vertex="1" parent="1">
-      <mxGeometry x="0" y="52" width="1654" height="10" as="geometry" />
-    </mxCell>
-
-    <!-- ══ SUPPLIER — NASA deep blue factory ══ -->
-    <mxCell id="supplier" value="Mission&#xa;Authority" style="shape=mxgraph.lean_mapping.external_source;fillColor=#222288;strokeColor=#000000;fontColor=#FFFFFF;fontSize=10;fontStyle=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-      <mxGeometry x="18" y="90" width="82" height="82" as="geometry" />
-    </mxCell>
-
-    <!-- ══ CUSTOMER — NASA green factory ══ -->
-    <mxCell id="customer" value="Gateway&#xa;Crew" style="shape=mxgraph.lean_mapping.external_source;fillColor=#1A7A3C;strokeColor=#000000;fontColor=#FFFFFF;fontSize=10;fontStyle=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-      <mxGeometry x="1554" y="90" width="82" height="82" as="geometry" />
-    </mxCell>
-
-    <!-- ══════════════════════════════════════════════════════════════
-         PROCESS BOXES — NASA deep blue #222288
-         Each box: header strip + CT row + body text
-         Kaizen bursts: NASA green #1A7A3C with white text
-    ══════════════════════════════════════════════════════════════ -->
-
-    <!-- ── BOX 1: Integrated Planning (AI) — KAIZEN ── -->
-    <mxCell id="box1" value="" style="rounded=0;html=1;fillColor=#222288;strokeColor=#6688CC;strokeWidth=1.5;" vertex="1" parent="1">
-      <mxGeometry x="112" y="90" width="138" height="82" as="geometry" />
-    </mxCell>
-    <!-- Header strip -->
-    <mxCell id="box1_strip" value="" style="rounded=0;html=1;fillColor=#1A1A66;strokeColor=none;" vertex="1" parent="1">
-      <mxGeometry x="112" y="90" width="138" height="22" as="geometry" />
-    </mxCell>
-    <mxCell id="box1_hdr" value="Integrated Planning (AI)" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
-      <mxGeometry x="112" y="91" width="138" height="20" as="geometry" />
-    </mxCell>
-    <mxCell id="box1_ct" value="CT: 4d" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#E6C44D;" vertex="1" parent="1">
-      <mxGeometry x="112" y="114" width="138" height="18" as="geometry" />
-    </mxCell>
-    <mxCell id="box1_body" value="AI-assisted manifest&#xa;auto-optimisation" style="text;html=1;align=center;fontSize=8;fontColor=#AACCFF;verticalAlign=top;" vertex="1" parent="1">
-      <mxGeometry x="112" y="134" width="138" height="35" as="geometry" />
-    </mxCell>
-    <!-- Kaizen burst 1 — NASA green -->
-    <mxCell id="kai1" value="Kaizen:&#xa;AI Assist +&#xa;Automation" style="shape=mxgraph.lean_mapping.kaizen_lightning_burst;fillColor=#1A7A3C;strokeColor=#0D5C2A;fontColor=#FFFFFF;fontSize=7;fontStyle=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-      <mxGeometry x="102" y="8" width="90" height="70" as="geometry" />
-    </mxCell>
-    <mxCell id="kc1" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#0D5C2A;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="kai1" target="box1">
-      <mxGeometry relative="1" as="geometry" />
-    </mxCell>
-
-    <!-- Push arrow 1→2 — NASA orange -->
-    <mxCell id="push1" value="PUSH" style="shape=mxgraph.lean_mapping.push_arrow;fillColor=#DB5200;strokeColor=#AA3A00;fontColor=#FFFFFF;fontSize=7;fontStyle=1;" vertex="1" parent="1">
-      <mxGeometry x="258" y="118" width="34" height="26" as="geometry" />
-    </mxCell>
-
-    <!-- ── BOX 2: Concurrent Cargo Integ. — KAIZEN ── -->
-    <mxCell id="box2" value="" style="rounded=0;html=1;fillColor=#222288;strokeColor=#6688CC;strokeWidth=1.5;" vertex="1" parent="1">
-      <mxGeometry x="300" y="90" width="138" height="82" as="geometry" />
-    </mxCell>
-    <mxCell id="box2_strip" value="" style="rounded=0;html=1;fillColor=#1A1A66;strokeColor=none;" vertex="1" parent="1">
-      <mxGeometry x="300" y="90" width="138" height="22" as="geometry" />
-    </mxCell>
-    <mxCell id="box2_hdr" value="Concurrent Cargo Integ." style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
-      <mxGeometry x="300" y="91" width="138" height="20" as="geometry" />
-    </mxCell>
-    <mxCell id="box2_ct" value="CT: 6d" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#E6C44D;" vertex="1" parent="1">
-      <mxGeometry x="300" y="114" width="138" height="18" as="geometry" />
-    </mxCell>
-    <mxCell id="box2_body" value="Parallel cargo streams&#xa;simultaneous prep" style="text;html=1;align=center;fontSize=8;fontColor=#AACCFF;verticalAlign=top;" vertex="1" parent="1">
-      <mxGeometry x="300" y="134" width="138" height="35" as="geometry" />
-    </mxCell>
-    <mxCell id="kai2" value="Kaizen:&#xa;Parallel&#xa;Cargo Preps" style="shape=mxgraph.lean_mapping.kaizen_lightning_burst;fillColor=#1A7A3C;strokeColor=#0D5C2A;fontColor=#FFFFFF;fontSize=7;fontStyle=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-      <mxGeometry x="290" y="8" width="90" height="70" as="geometry" />
-    </mxCell>
-    <mxCell id="kc2" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#0D5C2A;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="kai2" target="box2">
-      <mxGeometry relative="1" as="geometry" />
-    </mxCell>
-
-    <!-- Push arrow 2→3 -->
-    <mxCell id="push2" value="PUSH" style="shape=mxgraph.lean_mapping.push_arrow;fillColor=#DB5200;strokeColor=#AA3A00;fontColor=#FFFFFF;fontSize=7;fontStyle=1;" vertex="1" parent="1">
-      <mxGeometry x="446" y="118" width="34" height="26" as="geometry" />
-    </mxCell>
-
-    <!-- ── BOX 3: Lean Launch Prep — KAIZEN ── -->
-    <mxCell id="box3" value="" style="rounded=0;html=1;fillColor=#222288;strokeColor=#6688CC;strokeWidth=1.5;" vertex="1" parent="1">
-      <mxGeometry x="488" y="90" width="138" height="82" as="geometry" />
-    </mxCell>
-    <mxCell id="box3_strip" value="" style="rounded=0;html=1;fillColor=#1A1A66;strokeColor=none;" vertex="1" parent="1">
-      <mxGeometry x="488" y="90" width="138" height="22" as="geometry" />
-    </mxCell>
-    <mxCell id="box3_hdr" value="Lean Launch Prep" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
-      <mxGeometry x="488" y="91" width="138" height="20" as="geometry" />
-    </mxCell>
-    <mxCell id="box3_ct" value="CT: 4d" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#E6C44D;" vertex="1" parent="1">
-      <mxGeometry x="488" y="114" width="138" height="18" as="geometry" />
-    </mxCell>
-    <mxCell id="box3_body" value="5S launch checklist&#xa;JIT countdown" style="text;html=1;align=center;fontSize=8;fontColor=#AACCFF;verticalAlign=top;" vertex="1" parent="1">
-      <mxGeometry x="488" y="134" width="138" height="35" as="geometry" />
-    </mxCell>
-    <mxCell id="kai3" value="Kaizen:&#xa;Lean&#xa;Scheduling" style="shape=mxgraph.lean_mapping.kaizen_lightning_burst;fillColor=#1A7A3C;strokeColor=#0D5C2A;fontColor=#FFFFFF;fontSize=7;fontStyle=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-      <mxGeometry x="478" y="8" width="90" height="70" as="geometry" />
-    </mxCell>
-    <mxCell id="kc3" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#0D5C2A;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="kai3" target="box3">
-      <mxGeometry relative="1" as="geometry" />
-    </mxCell>
-
-    <!-- PULL Signal 3→4 — NASA deep blue dashed -->
-    <mxCell id="pull_line" value="" style="endArrow=block;endFill=1;startArrow=none;html=1;strokeColor=#222288;strokeWidth=2.5;dashed=1;dashPattern=10 5;" edge="1" parent="1">
-      <mxGeometry relative="1" as="geometry">
-        <mxPoint as="sourcePoint" x="626" y="131" />
-        <mxPoint as="targetPoint" x="676" y="131" />
-      </mxGeometry>
-    </mxCell>
-    <!-- Pull signal label -->
-    <mxCell id="pull_lbl" value="◀ PULL / JIT" style="text;html=1;align=center;fontSize=8;fontStyle=3;fontColor=#222288;" vertex="1" parent="1">
-      <mxGeometry x="618" y="115" width="72" height="14" as="geometry" />
-    </mxCell>
-    <!-- Pull signal arc annotation -->
-    <mxCell id="pull_sig_box" value="JIT replenishment&#xa;signal" style="rounded=1;html=1;fillColor=#E8F0FF;strokeColor=#222288;strokeWidth=1;fontSize=7;fontColor=#222288;arcSize=30;" vertex="1" parent="1">
-      <mxGeometry x="594" y="200" width="120" height="30" as="geometry" />
-    </mxCell>
-
-    <!-- ── BOX 4: Transit to Gateway ── -->
-    <mxCell id="box4" value="" style="rounded=0;html=1;fillColor=#222288;strokeColor=#6688CC;strokeWidth=1.5;" vertex="1" parent="1">
-      <mxGeometry x="678" y="90" width="138" height="82" as="geometry" />
-    </mxCell>
-    <mxCell id="box4_strip" value="" style="rounded=0;html=1;fillColor=#1A1A66;strokeColor=none;" vertex="1" parent="1">
-      <mxGeometry x="678" y="90" width="138" height="22" as="geometry" />
-    </mxCell>
-    <mxCell id="box4_hdr" value="Transit to Gateway" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
-      <mxGeometry x="678" y="91" width="138" height="20" as="geometry" />
-    </mxCell>
-    <mxCell id="box4_ct" value="CT: 4d" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#E6C44D;" vertex="1" parent="1">
-      <mxGeometry x="678" y="114" width="138" height="18" as="geometry" />
-    </mxCell>
-    <mxCell id="box4_body" value="Optimised NRHO&#xa;transit trajectory" style="text;html=1;align=center;fontSize=8;fontColor=#AACCFF;verticalAlign=top;" vertex="1" parent="1">
-      <mxGeometry x="678" y="134" width="138" height="35" as="geometry" />
-    </mxCell>
-
-    <!-- Push arrow 4→5 -->
-    <mxCell id="push4" value="PUSH" style="shape=mxgraph.lean_mapping.push_arrow;fillColor=#DB5200;strokeColor=#AA3A00;fontColor=#FFFFFF;fontSize=7;fontStyle=1;" vertex="1" parent="1">
-      <mxGeometry x="824" y="118" width="34" height="26" as="geometry" />
-    </mxCell>
-
-    <!-- ── BOX 5: Auto Docking — KAIZEN ── -->
-    <mxCell id="box5" value="" style="rounded=0;html=1;fillColor=#222288;strokeColor=#6688CC;strokeWidth=1.5;" vertex="1" parent="1">
-      <mxGeometry x="866" y="90" width="138" height="82" as="geometry" />
-    </mxCell>
-    <mxCell id="box5_strip" value="" style="rounded=0;html=1;fillColor=#1A1A66;strokeColor=none;" vertex="1" parent="1">
-      <mxGeometry x="866" y="90" width="138" height="22" as="geometry" />
-    </mxCell>
-    <mxCell id="box5_hdr" value="Auto Docking" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
-      <mxGeometry x="866" y="91" width="138" height="20" as="geometry" />
-    </mxCell>
-    <mxCell id="box5_ct" value="CT: 2d" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#E6C44D;" vertex="1" parent="1">
-      <mxGeometry x="866" y="114" width="138" height="18" as="geometry" />
-    </mxCell>
-    <mxCell id="box5_body" value="Autonomous berthing&#xa;robotic unloading" style="text;html=1;align=center;fontSize=8;fontColor=#AACCFF;verticalAlign=top;" vertex="1" parent="1">
-      <mxGeometry x="866" y="134" width="138" height="35" as="geometry" />
-    </mxCell>
-    <mxCell id="kai5" value="Kaizen:&#xa;Autonomous&#xa;Docking" style="shape=mxgraph.lean_mapping.kaizen_lightning_burst;fillColor=#1A7A3C;strokeColor=#0D5C2A;fontColor=#FFFFFF;fontSize=7;fontStyle=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-      <mxGeometry x="856" y="8" width="90" height="70" as="geometry" />
-    </mxCell>
-    <mxCell id="kc5" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#0D5C2A;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="kai5" target="box5">
-      <mxGeometry relative="1" as="geometry" />
-    </mxCell>
-
-    <!-- Push arrow 5→6 -->
-    <mxCell id="push5" value="PUSH" style="shape=mxgraph.lean_mapping.push_arrow;fillColor=#DB5200;strokeColor=#AA3A00;fontColor=#FFFFFF;fontSize=7;fontStyle=1;" vertex="1" parent="1">
-      <mxGeometry x="1012" y="118" width="34" height="26" as="geometry" />
-    </mxCell>
-
-    <!-- ── BOX 6: RFID-track Stow ── -->
-    <mxCell id="box6" value="" style="rounded=0;html=1;fillColor=#222288;strokeColor=#6688CC;strokeWidth=1.5;" vertex="1" parent="1">
-      <mxGeometry x="1054" y="90" width="138" height="82" as="geometry" />
-    </mxCell>
-    <mxCell id="box6_strip" value="" style="rounded=0;html=1;fillColor=#1A1A66;strokeColor=none;" vertex="1" parent="1">
-      <mxGeometry x="1054" y="90" width="138" height="22" as="geometry" />
-    </mxCell>
-    <mxCell id="box6_hdr" value="RFID-track Stow" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
-      <mxGeometry x="1054" y="91" width="138" height="20" as="geometry" />
-    </mxCell>
-    <mxCell id="box6_ct" value="CT: 2d" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#E6C44D;" vertex="1" parent="1">
-      <mxGeometry x="1054" y="114" width="138" height="18" as="geometry" />
-    </mxCell>
-    <mxCell id="box6_body" value="RFID auto-tracking&#xa;digital stow record" style="text;html=1;align=center;fontSize=8;fontColor=#AACCFF;verticalAlign=top;" vertex="1" parent="1">
-      <mxGeometry x="1054" y="134" width="138" height="35" as="geometry" />
-    </mxCell>
-    <!-- Kaizen burst 6 — RFID improvement -->
-    <mxCell id="kai6" value="Kaizen:&#xa;RFID Digital&#xa;Tracking" style="shape=mxgraph.lean_mapping.kaizen_lightning_burst;fillColor=#1A7A3C;strokeColor=#0D5C2A;fontColor=#FFFFFF;fontSize=7;fontStyle=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-      <mxGeometry x="1044" y="8" width="90" height="70" as="geometry" />
-    </mxCell>
-    <mxCell id="kc6" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#0D5C2A;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="kai6" target="box6">
-      <mxGeometry relative="1" as="geometry" />
-    </mxCell>
-
-    <!-- Push arrow 6→7 -->
-    <mxCell id="push6" value="PUSH" style="shape=mxgraph.lean_mapping.push_arrow;fillColor=#DB5200;strokeColor=#AA3A00;fontColor=#FFFFFF;fontSize=7;fontStyle=1;" vertex="1" parent="1">
-      <mxGeometry x="1200" y="118" width="34" height="26" as="geometry" />
-    </mxCell>
-
-    <!-- ── BOX 7: JIT Fulfillment ── -->
-    <mxCell id="box7" value="" style="rounded=0;html=1;fillColor=#222288;strokeColor=#6688CC;strokeWidth=1.5;" vertex="1" parent="1">
-      <mxGeometry x="1242" y="90" width="138" height="82" as="geometry" />
-    </mxCell>
-    <mxCell id="box7_strip" value="" style="rounded=0;html=1;fillColor=#1A1A66;strokeColor=none;" vertex="1" parent="1">
-      <mxGeometry x="1242" y="90" width="138" height="22" as="geometry" />
-    </mxCell>
-    <mxCell id="box7_hdr" value="JIT Fulfillment" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#FFFFFF;" vertex="1" parent="1">
-      <mxGeometry x="1242" y="91" width="138" height="20" as="geometry" />
-    </mxCell>
-    <mxCell id="box7_ct" value="CT: 1d" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#E6C44D;" vertex="1" parent="1">
-      <mxGeometry x="1242" y="114" width="138" height="18" as="geometry" />
-    </mxCell>
-    <mxCell id="box7_body" value="On-demand issue&#xa;zero buffer stock" style="text;html=1;align=center;fontSize=8;fontColor=#AACCFF;verticalAlign=top;" vertex="1" parent="1">
-      <mxGeometry x="1242" y="134" width="138" height="35" as="geometry" />
-    </mxCell>
-
-    <!-- Supplier → Box1 -->
-    <mxCell id="s_arr" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#222288;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="supplier" target="box1">
-      <mxGeometry relative="1" as="geometry" />
-    </mxCell>
-    <!-- Box7 → Customer -->
-    <mxCell id="c_arr" value="" style="endArrow=block;endFill=1;html=1;strokeColor=#1A7A3C;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="box7" target="customer">
-      <mxGeometry relative="1" as="geometry" />
-    </mxCell>
-
-    <!-- ══════════════════════════════════════════════════════════════
-         ZIGZAG LEAD TIME LINE — NASA deep blue
-         Wait times: 7, 10, 16, 4, 6, 5, 4 days | scale 3px/day
-         NVA = 52d  VA = 23d  Total = 75d
-    ══════════════════════════════════════════════════════════════ -->
-    <mxCell id="zigzag" value="" style="endArrow=none;html=1;strokeColor=#222288;strokeWidth=2.5;" edge="1" parent="1">
-      <mxGeometry relative="1" as="geometry">
-        <mxPoint as="sourcePoint" x="55" y="260" />
-        <mxPoint as="targetPoint" x="1545" y="260" />
-        <Array as="points">
-          <!-- Step 1: wait 7d, depth 21px -->
-          <mxPoint x="112" y="260" /><mxPoint x="112" y="281" /><mxPoint x="250" y="281" /><mxPoint x="250" y="260" />
-          <!-- Step 2: wait 10d, depth 30px -->
-          <mxPoint x="300" y="260" /><mxPoint x="300" y="290" /><mxPoint x="438" y="290" /><mxPoint x="438" y="260" />
-          <!-- Step 3: wait 16d, depth 48px -->
-          <mxPoint x="488" y="260" /><mxPoint x="488" y="308" /><mxPoint x="626" y="308" /><mxPoint x="626" y="260" />
-          <!-- Step 4: wait 4d, depth 12px -->
-          <mxPoint x="678" y="260" /><mxPoint x="678" y="272" /><mxPoint x="816" y="272" /><mxPoint x="816" y="260" />
-          <!-- Step 5: wait 6d, depth 18px -->
-          <mxPoint x="866" y="260" /><mxPoint x="866" y="278" /><mxPoint x="1004" y="278" /><mxPoint x="1004" y="260" />
-          <!-- Step 6: wait 5d, depth 15px -->
-          <mxPoint x="1054" y="260" /><mxPoint x="1054" y="275" /><mxPoint x="1192" y="275" /><mxPoint x="1192" y="260" />
-          <!-- Step 7: wait 4d, depth 12px -->
-          <mxPoint x="1242" y="260" /><mxPoint x="1242" y="272" /><mxPoint x="1380" y="272" /><mxPoint x="1380" y="260" />
-        </Array>
-      </mxGeometry>
-    </mxCell>
-
-    <!-- NVA Wait Labels — NASA red, below each dip -->
-    <mxCell id="wt1" value="7d" style="text;html=1;align=center;fontSize=10;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1"><mxGeometry x="161" y="283" width="40" height="18" as="geometry" /></mxCell>
-    <mxCell id="wt2" value="10d" style="text;html=1;align=center;fontSize=10;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1"><mxGeometry x="349" y="292" width="40" height="18" as="geometry" /></mxCell>
-    <mxCell id="wt3" value="16d" style="text;html=1;align=center;fontSize=10;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1"><mxGeometry x="537" y="310" width="40" height="18" as="geometry" /></mxCell>
-    <mxCell id="wt4" value="4d" style="text;html=1;align=center;fontSize=10;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1"><mxGeometry x="727" y="274" width="40" height="18" as="geometry" /></mxCell>
-    <mxCell id="wt5" value="6d" style="text;html=1;align=center;fontSize=10;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1"><mxGeometry x="915" y="280" width="40" height="18" as="geometry" /></mxCell>
-    <mxCell id="wt6" value="5d" style="text;html=1;align=center;fontSize=10;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1"><mxGeometry x="1103" y="277" width="40" height="18" as="geometry" /></mxCell>
-    <mxCell id="wt7" value="4d" style="text;html=1;align=center;fontSize=10;fontStyle=1;fontColor=#CC0000;" vertex="1" parent="1"><mxGeometry x="1291" y="274" width="40" height="18" as="geometry" /></mxCell>
-
-    <!-- VA CT Labels — NASA green, above zigzag -->
-    <mxCell id="ct1" value="VA=4d" style="text;html=1;align=center;fontSize=8;fontStyle=1;fontColor=#1A7A3C;" vertex="1" parent="1"><mxGeometry x="161" y="242" width="40" height="16" as="geometry" /></mxCell>
-    <mxCell id="ct2" value="VA=6d" style="text;html=1;align=center;fontSize=8;fontStyle=1;fontColor=#1A7A3C;" vertex="1" parent="1"><mxGeometry x="349" y="242" width="40" height="16" as="geometry" /></mxCell>
-    <mxCell id="ct3" value="VA=4d" style="text;html=1;align=center;fontSize=8;fontStyle=1;fontColor=#1A7A3C;" vertex="1" parent="1"><mxGeometry x="537" y="242" width="40" height="16" as="geometry" /></mxCell>
-    <mxCell id="ct4" value="VA=4d" style="text;html=1;align=center;fontSize=8;fontStyle=1;fontColor=#1A7A3C;" vertex="1" parent="1"><mxGeometry x="727" y="242" width="40" height="16" as="geometry" /></mxCell>
-    <mxCell id="ct5" value="VA=2d" style="text;html=1;align=center;fontSize=8;fontStyle=1;fontColor=#1A7A3C;" vertex="1" parent="1"><mxGeometry x="915" y="242" width="40" height="16" as="geometry" /></mxCell>
-    <mxCell id="ct6" value="VA=2d" style="text;html=1;align=center;fontSize=8;fontStyle=1;fontColor=#1A7A3C;" vertex="1" parent="1"><mxGeometry x="1103" y="242" width="40" height="16" as="geometry" /></mxCell>
-    <mxCell id="ct7" value="VA=1d" style="text;html=1;align=center;fontSize=8;fontStyle=1;fontColor=#1A7A3C;" vertex="1" parent="1"><mxGeometry x="1291" y="242" width="40" height="16" as="geometry" /></mxCell>
-
-    <!-- ══════════════════════════════════════════════════════════════
-         LEAD TIME ARROW — NASA deep blue
-    ══════════════════════════════════════════════════════════════ -->
-    <mxCell id="lt_arrow" value="Total Lead Time = 75 days  ( ↓ 34 days | −31% vs Current State )" style="endArrow=block;startArrow=block;endFill=1;startFill=1;html=1;strokeColor=#222288;strokeWidth=3;fontSize=12;fontStyle=1;fontColor=#222288;align=center;verticalAlign=bottom;" edge="1" parent="1">
-      <mxGeometry relative="1" as="geometry">
-        <mxPoint as="sourcePoint" x="55" y="380" />
-        <mxPoint as="targetPoint" x="1545" y="380" />
-      </mxGeometry>
-    </mxCell>
-
-    <!-- ══════════════════════════════════════════════════════════════
-         PCE SUMMARY BOX — NASA gold
-    ══════════════════════════════════════════════════════════════ -->
-    <mxCell id="pce_box" value="PCE = 30.7%   |   VA Time = 23d   |   NVA Time = 52d   |   Total Lead Time = 75 days" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6C44D;strokeColor=#AA8800;fontSize=12;fontStyle=1;fontColor=#1A1A00;arcSize=15;" vertex="1" parent="1">
-      <mxGeometry x="420" y="408" width="814" height="44" as="geometry" />
-    </mxCell>
-
-    <!-- ══════════════════════════════════════════════════════════════
-         IMPROVEMENT SUMMARY — NASA blue panel
-    ══════════════════════════════════════════════════════════════ -->
-    <mxCell id="imp_bar" value="" style="rounded=1;html=1;fillColor=#222288;strokeColor=none;arcSize=5;" vertex="1" parent="1">
-      <mxGeometry x="55" y="466" width="1544" height="34" as="geometry" />
-    </mxCell>
-    <mxCell id="imp_txt" value="▲  Improvements: Step 1 — AI Planning  |  Step 2 — Parallel Cargo  |  Step 3 — Lean Launch  |  Step 4 — PULL/JIT Signal  |  Step 5 — Auto Docking  |  Step 6 — RFID Stow  |  Step 7 — JIT Fulfillment" style="text;html=1;align=center;fontSize=9;fontStyle=1;fontColor=#E6C44D;" vertex="1" parent="1">
-      <mxGeometry x="55" y="474" width="1544" height="18" as="geometry" />
-    </mxCell>
-
-    <!-- ══ LEGEND ══ -->
-    <mxCell id="leg_bg" value="" style="rounded=1;html=1;fillColor=#FFFFFF;strokeColor=#CCCCCC;strokeWidth=1;arcSize=5;" vertex="1" parent="1">
-      <mxGeometry x="55" y="512" width="820" height="28" as="geometry" />
-    </mxCell>
-    <mxCell id="leg1" value="■  NASA Deep Blue = Process Step    ■  NASA Green = Kaizen / Improvement    ■  Gold = CT (Value-Added)    ■  Red = NVA wait time    ●  Dashed = PULL signal" style="text;html=1;align=left;fontSize=8;fontColor=#333333;" vertex="1" parent="1">
-      <mxGeometry x="62" y="519" width="806" height="14" as="geometry" />
-    </mxCell>
-
-  </root>
-</mxGraphModel>
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
+  <diagram name="F4.10 Future-State VSM" id="vsm-future">
+    <mxGraphModel dx="1737" dy="1293" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1620" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="v11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#b81a1a, #8eb6db);strokeColor=#143055;fontColor=#FFFFFF;fontSize=18;fontStyle=1;align=center;verticalAlign=middle;" value="VALUE STREAM MAP - FUTURE STATE  (TO-BE)     |     Lunar Gateway Resupply  ·  Heijunka levelled pull" vertex="1">
+          <mxGeometry height="42" width="1564" x="20" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="v12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#1F4E79;strokeColor=#143055;fontColor=#FFFFFF;fontSize=10;fontStyle=1;align=center;verticalAlign=middle;" value="VSM SECTION" vertex="1">
+          <mxGeometry height="36" width="220" x="20" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="v13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#204e79, #1f2f1e);strokeColor=#82b366;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;letterSpacing=1;fontColor=light-dark(#ffffff, #ededed);" value="INFORMATION  FLOW" vertex="1">
+          <mxGeometry height="36" width="672" x="240" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="v14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=light-dark(#204e79, #1f2f1e);strokeColor=#82b366;fontSize=13;fontStyle=1;align=center;verticalAlign=middle;letterSpacing=1;fontColor=light-dark(#ffffff, #ededed);" value="MATERIAL  FLOW   &amp;amp;   PROCESS  STEPS" vertex="1">
+          <mxGeometry height="36" width="672" x="912" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="v15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;fontStyle=1;align=left;verticalAlign=middle;spacingLeft=8;" value="Process Steps&#xa;(8-stage resupply chain)" vertex="1">
+          <mxGeometry height="56" width="220" x="20" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="v16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE9B5;strokeColor=#E2C97A;fontColor=#000000;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="Step 1&#xa;Demand&#xa;Planning" vertex="1">
+          <mxGeometry height="56" width="168" x="240" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="v17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE9B5;strokeColor=#E2C97A;fontColor=#000000;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="Step 2&#xa;Cargo&#xa;Manifesting" vertex="1">
+          <mxGeometry height="56" width="168" x="408" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="v18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE9B5;strokeColor=#E2C97A;fontColor=#000000;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="Step 3&#xa;LV&#xa;Integration" vertex="1">
+          <mxGeometry height="56" width="168" x="576" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="v19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE9B5;strokeColor=#E2C97A;fontColor=#000000;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="Step 4&#xa;Launch &amp;&#xa;Ascent" vertex="1">
+          <mxGeometry height="56" width="168" x="744" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="v20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE9B5;strokeColor=#E2C97A;fontColor=#000000;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="Step 5&#xa;Trans-Lunar&#xa;Transit" vertex="1">
+          <mxGeometry height="56" width="168" x="912" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="v21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE9B5;strokeColor=#E2C97A;fontColor=#000000;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="Step 6&#xa;NRHO&#xa;Rendezvous" vertex="1">
+          <mxGeometry height="56" width="168" x="1080" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="v22" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE9B5;strokeColor=#E2C97A;fontColor=#000000;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="Step 7&#xa;Berthing &amp;&#xa;Transfer" vertex="1">
+          <mxGeometry height="56" width="168" x="1248" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="v23" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE9B5;strokeColor=#E2C97A;fontColor=#000000;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="Step 8&#xa;Stowage &amp;&#xa;Update" vertex="1">
+          <mxGeometry height="56" width="168" x="1416" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="v24" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;fontStyle=1;align=left;verticalAlign=middle;spacingLeft=10;" value="Pull / Push Triggers ▲" vertex="1">
+          <mxGeometry height="38" width="220" x="20" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="v25" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="" vertex="1">
+          <mxGeometry height="38" width="168" x="240" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="v26" parent="1" style="shape=triangle;direction=north;fillColor=#C00000;strokeColor=#000000;strokeWidth=1.5;fontSize=16;" value="" vertex="1">
+          <mxGeometry height="16" width="18" x="287" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="v27" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#000000;fontSize=16;fontStyle=1;align=left;verticalAlign=middle;" value="PUSH" vertex="1">
+          <mxGeometry height="38" width="60" x="309" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="v28" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="" vertex="1">
+          <mxGeometry height="38" width="168" x="408" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="v29" parent="1" style="shape=triangle;direction=north;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=16;" value="" vertex="1">
+          <mxGeometry height="16" width="18" x="455" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="v30" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#1F7E47;fontSize=16;fontStyle=1;align=left;verticalAlign=middle;" value="PULL" vertex="1">
+          <mxGeometry height="38" width="60" x="477" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="v31" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="" vertex="1">
+          <mxGeometry height="38" width="168" x="576" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="v32" parent="1" style="shape=triangle;direction=north;fillColor=#C00000;strokeColor=#000000;strokeWidth=1.5;fontSize=16;" value="" vertex="1">
+          <mxGeometry height="16" width="18" x="623" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="v33" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#000000;fontSize=16;fontStyle=1;align=left;verticalAlign=middle;" value="PUSH" vertex="1">
+          <mxGeometry height="38" width="60" x="645" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="v34" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="" vertex="1">
+          <mxGeometry height="38" width="168" x="744" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="v35" parent="1" style="shape=triangle;direction=north;fillColor=#C00000;strokeColor=#000000;strokeWidth=1.5;fontSize=16;" value="" vertex="1">
+          <mxGeometry height="16" width="18" x="791" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="v36" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#000000;fontSize=16;fontStyle=1;align=left;verticalAlign=middle;" value="PUSH" vertex="1">
+          <mxGeometry height="38" width="60" x="813" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="v37" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="" vertex="1">
+          <mxGeometry height="38" width="168" x="912" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="v38" parent="1" style="shape=triangle;direction=north;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=16;" value="" vertex="1">
+          <mxGeometry height="16" width="18" x="959" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="v39" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#1F7E47;fontSize=16;fontStyle=1;align=left;verticalAlign=middle;" value="PULL" vertex="1">
+          <mxGeometry height="38" width="60" x="981" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="v40" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="" vertex="1">
+          <mxGeometry height="38" width="168" x="1080" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="v41" parent="1" style="shape=triangle;direction=north;fillColor=#C00000;strokeColor=#000000;strokeWidth=1.5;fontSize=16;" value="" vertex="1">
+          <mxGeometry height="16" width="18" x="1127" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="v42" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#000000;fontSize=16;fontStyle=1;align=left;verticalAlign=middle;" value="PUSH" vertex="1">
+          <mxGeometry height="38" width="60" x="1149" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="v43" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="" vertex="1">
+          <mxGeometry height="38" width="168" x="1248" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="v44" parent="1" style="shape=triangle;direction=north;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=16;" value="" vertex="1">
+          <mxGeometry height="16" width="18" x="1295" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="v45" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#1F7E47;fontSize=16;fontStyle=1;align=left;verticalAlign=middle;" value="PULL" vertex="1">
+          <mxGeometry height="38" width="60" x="1317" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="v46" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="" vertex="1">
+          <mxGeometry height="38" width="168" x="1416" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="v47" parent="1" style="shape=triangle;direction=north;fillColor=#FFFFFF;strokeColor=#000000;strokeWidth=1.5;fontSize=16;" value="" vertex="1">
+          <mxGeometry height="16" width="18" x="1463" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="v48" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#1F7E47;fontSize=16;fontStyle=1;align=left;verticalAlign=middle;" value="PULL" vertex="1">
+          <mxGeometry height="38" width="60" x="1485" y="154" as="geometry" />
+        </mxCell>
+        <mxCell id="v49" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;fontStyle=1;align=left;verticalAlign=middle;spacingLeft=10;" value="Cycle Time  C/T" vertex="1">
+          <mxGeometry height="38" width="220" x="20" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="v50" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="2 d" vertex="1">
+          <mxGeometry height="38" width="168" x="240" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="v51" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="3 d" vertex="1">
+          <mxGeometry height="38" width="168" x="408" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="v52" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="5 d" vertex="1">
+          <mxGeometry height="38" width="168" x="576" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="v53" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="1 d" vertex="1">
+          <mxGeometry height="38" width="168" x="744" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="v54" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="4 d" vertex="1">
+          <mxGeometry height="38" width="168" x="912" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="v55" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="2 d" vertex="1">
+          <mxGeometry height="38" width="168" x="1080" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="v56" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="3 d" vertex="1">
+          <mxGeometry height="38" width="168" x="1248" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="v57" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="3 d" vertex="1">
+          <mxGeometry height="38" width="168" x="1416" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="v58" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;fontStyle=1;align=left;verticalAlign=middle;spacingLeft=10;" value="Wait Time  W/T" vertex="1">
+          <mxGeometry height="38" width="220" x="20" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="v59" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="12 d" vertex="1">
+          <mxGeometry height="38" width="168" x="240" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="v60" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5E8;strokeColor=#82b366;fontColor=#1F7E47;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="3 d ▼" vertex="1">
+          <mxGeometry height="38" width="168" x="408" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="v61" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="18 d" vertex="1">
+          <mxGeometry height="38" width="168" x="576" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="v62" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="6 d" vertex="1">
+          <mxGeometry height="38" width="168" x="744" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="v63" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5E8;strokeColor=#82b366;fontColor=#1F7E47;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="2 d ▼" vertex="1">
+          <mxGeometry height="38" width="168" x="912" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="v64" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="8 d" vertex="1">
+          <mxGeometry height="38" width="168" x="1080" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="v65" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5E8;strokeColor=#82b366;fontColor=#1F7E47;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="2 d ▼" vertex="1">
+          <mxGeometry height="38" width="168" x="1248" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="v66" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8F5E8;strokeColor=#82b366;fontColor=#1F7E47;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="1 d ▼" vertex="1">
+          <mxGeometry height="38" width="168" x="1416" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="v67" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;fontStyle=1;align=left;verticalAlign=middle;spacingLeft=10;" value="Inventory  (WIP)" vertex="1">
+          <mxGeometry height="38" width="220" x="20" y="268" as="geometry" />
+        </mxCell>
+        <mxCell id="v68" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="-" vertex="1">
+          <mxGeometry height="38" width="168" x="240" y="268" as="geometry" />
+        </mxCell>
+        <mxCell id="v69" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="3 u" vertex="1">
+          <mxGeometry height="38" width="168" x="408" y="268" as="geometry" />
+        </mxCell>
+        <mxCell id="v70" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="8 u" vertex="1">
+          <mxGeometry height="38" width="168" x="576" y="268" as="geometry" />
+        </mxCell>
+        <mxCell id="v71" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="1 u" vertex="1">
+          <mxGeometry height="38" width="168" x="744" y="268" as="geometry" />
+        </mxCell>
+        <mxCell id="v72" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="1 u" vertex="1">
+          <mxGeometry height="38" width="168" x="912" y="268" as="geometry" />
+        </mxCell>
+        <mxCell id="v73" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="1 u" vertex="1">
+          <mxGeometry height="38" width="168" x="1080" y="268" as="geometry" />
+        </mxCell>
+        <mxCell id="v74" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="1 u" vertex="1">
+          <mxGeometry height="38" width="168" x="1248" y="268" as="geometry" />
+        </mxCell>
+        <mxCell id="v75" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="—" vertex="1">
+          <mxGeometry height="38" width="168" x="1416" y="268" as="geometry" />
+        </mxCell>
+        <mxCell id="v76" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;fontStyle=1;align=left;verticalAlign=middle;spacingLeft=10;" value="Kaizen Bursts ★" vertex="1">
+          <mxGeometry height="52" width="220" x="20" y="306" as="geometry" />
+        </mxCell>
+        <mxCell id="v77" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="" vertex="1">
+          <mxGeometry height="52" width="168" x="240" y="306" as="geometry" />
+        </mxCell>
+        <mxCell id="v78" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="" vertex="1">
+          <mxGeometry height="52" width="168" x="408" y="306" as="geometry" />
+        </mxCell>
+        <mxCell id="v79" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFD966;strokeColor=#B8860B;strokeWidth=2;fontColor=#000000;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;" value="Digital&#xa;manifesting&#xa;(−13 d)" vertex="1">
+          <mxGeometry height="44" width="152" x="416" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="v80" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="" vertex="1">
+          <mxGeometry height="52" width="168" x="576" y="306" as="geometry" />
+        </mxCell>
+        <mxCell id="v81" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="" vertex="1">
+          <mxGeometry height="52" width="168" x="744" y="306" as="geometry" />
+        </mxCell>
+        <mxCell id="v82" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="" vertex="1">
+          <mxGeometry height="52" width="168" x="912" y="306" as="geometry" />
+        </mxCell>
+        <mxCell id="v83" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFD966;strokeColor=#B8860B;strokeWidth=2;fontColor=#000000;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;" value="Optimised&#xa;trajectory&#xa;(−8 d)" vertex="1">
+          <mxGeometry height="44" width="152" x="920" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="v84" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="" vertex="1">
+          <mxGeometry height="52" width="168" x="1080" y="306" as="geometry" />
+        </mxCell>
+        <mxCell id="v85" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="" vertex="1">
+          <mxGeometry height="52" width="168" x="1248" y="306" as="geometry" />
+        </mxCell>
+        <mxCell id="v86" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFD966;strokeColor=#B8860B;strokeWidth=2;fontColor=#000000;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;" value="Auto-&#xa;berthing&#xa;(−10 d)" vertex="1">
+          <mxGeometry height="44" width="152" x="1256" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="v87" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;align=center;verticalAlign=middle;" value="" vertex="1">
+          <mxGeometry height="52" width="168" x="1416" y="306" as="geometry" />
+        </mxCell>
+        <mxCell id="v88" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFD966;strokeColor=#B8860B;strokeWidth=2;fontColor=#000000;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;" value="RFID auto-&#xa;stowage&#xa;(−3 d)" vertex="1">
+          <mxGeometry height="44" width="152" x="1424" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="v89" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D6EAF8;strokeColor=#9A9A9A;fontColor=#000000;fontSize=16;fontStyle=1;align=left;verticalAlign=middle;spacingLeft=10;" value="Lead-Time&#xa;Ladder&#xa;(VA / NVA)" vertex="1">
+          <mxGeometry height="180" width="220" x="20" y="376" as="geometry" />
+        </mxCell>
+        <mxCell id="v90" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#27AE60;strokeColor=#0F4D2C;fontColor=#FFFFFF;fontSize=21;fontStyle=1;align=center;verticalAlign=middle;" value="12 d" vertex="1">
+          <mxGeometry height="60" width="144" x="255" y="401" as="geometry" />
+        </mxCell>
+        <mxCell id="v91" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;" value="2 d" vertex="1">
+          <mxGeometry height="32" width="31" x="399" y="474" as="geometry" />
+        </mxCell>
+        <mxCell id="v92" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#27AE60;strokeColor=#0F4D2C;fontColor=#FFFFFF;fontSize=21;fontStyle=1;align=center;verticalAlign=middle;" value="3 d" vertex="1">
+          <mxGeometry height="60" width="36" x="423" y="401" as="geometry" />
+        </mxCell>
+        <mxCell id="v93" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;" value="3 d" vertex="1">
+          <mxGeometry height="32" width="51" x="459" y="474" as="geometry" />
+        </mxCell>
+        <mxCell id="v94" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#27AE60;strokeColor=#0F4D2C;fontColor=#FFFFFF;fontSize=21;fontStyle=1;align=center;verticalAlign=middle;" value="18 d" vertex="1">
+          <mxGeometry height="60" width="216" x="495" y="401" as="geometry" />
+        </mxCell>
+        <mxCell id="v95" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;" value="5 d" vertex="1">
+          <mxGeometry height="32" width="60" x="711" y="474" as="geometry" />
+        </mxCell>
+        <mxCell id="v96" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#27AE60;strokeColor=#0F4D2C;fontColor=#FFFFFF;fontSize=21;fontStyle=1;align=center;verticalAlign=middle;" value="6 d" vertex="1">
+          <mxGeometry height="60" width="72" x="771" y="401" as="geometry" />
+        </mxCell>
+        <mxCell id="v97" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;" value="1 d" vertex="1">
+          <mxGeometry height="32" width="50" x="818" y="474" as="geometry" />
+        </mxCell>
+        <mxCell id="v98" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#27AE60;strokeColor=#0F4D2C;fontColor=#FFFFFF;fontSize=21;fontStyle=1;align=center;verticalAlign=middle;" value="2 d" vertex="1">
+          <mxGeometry height="60" width="55" x="855" y="401" as="geometry" />
+        </mxCell>
+        <mxCell id="v99" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;" value="4 d" vertex="1">
+          <mxGeometry height="32" width="48" x="879" y="474" as="geometry" />
+        </mxCell>
+        <mxCell id="v100" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#27AE60;strokeColor=#0F4D2C;fontColor=#FFFFFF;fontSize=21;fontStyle=1;align=center;verticalAlign=middle;" value="8 d" vertex="1">
+          <mxGeometry height="60" width="96" x="927" y="401" as="geometry" />
+        </mxCell>
+        <mxCell id="v101" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;" value="2 d" vertex="1">
+          <mxGeometry height="32" width="47" x="1000" y="474" as="geometry" />
+        </mxCell>
+        <mxCell id="v102" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#27AE60;strokeColor=#0F4D2C;fontColor=#FFFFFF;fontSize=21;fontStyle=1;align=center;verticalAlign=middle;" value="2 d" vertex="1">
+          <mxGeometry height="60" width="43" x="1047" y="401" as="geometry" />
+        </mxCell>
+        <mxCell id="v103" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;" value="3 d" vertex="1">
+          <mxGeometry height="32" width="36" x="1071" y="474" as="geometry" />
+        </mxCell>
+        <mxCell id="v104" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#27AE60;strokeColor=#0F4D2C;fontColor=#FFFFFF;fontSize=21;fontStyle=1;align=center;verticalAlign=middle;" value="1 d" vertex="1">
+          <mxGeometry height="60" width="53" x="1107" y="401" as="geometry" />
+        </mxCell>
+        <mxCell id="v105" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;" value="3 d" vertex="1">
+          <mxGeometry height="32" width="36" x="1121" y="474" as="geometry" />
+        </mxCell>
+        <mxCell id="v106" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=17;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;spacingRight=12;" value="&lt;b&gt;NOTES — FUTURE STATE&lt;/b&gt;&#xa;1.  Steps 2, 5, 7, 8 converted to PULL (kanban) triggers under Heijunka levelled scheduling.&#xa;2.  Amber kaizen bursts ★ on those steps mark targeted improvements; total saving = 34 d.&#xa;3.  Wait reductions:  S2 −13 d (digital manifest);  S5 −8 d (trajectory);&#xa;    S7 −10 d (auto-berthing);  S8 −3 d (RFID stowage).&#xa;4.  PCE = Σ Cycle-Time / (Σ C/T + Σ Wait) = 23 / (23 + 52) = 30.7 %.&#xa;5.  Reference: NASA NPR 7120.5E project life-cycle styling (Fig. 3.0-1)." vertex="1">
+          <mxGeometry height="200" width="772" x="20" y="576" as="geometry" />
+        </mxCell>
+        <mxCell id="v107" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=17;align=left;verticalAlign=top;spacingLeft=12;spacingTop=10;spacingRight=12;" value="&lt;b&gt;KPI  ·  FUTURE STATE&lt;/b&gt;&#xa;Lead Time  L  =  Σ C/T + Σ W/T  =  75 d   (▼ 34 d  vs current)&#xa;Value-Add  Σ C/T  =  23 d        (unchanged)&#xa;Non-Value-Add  Σ W/T  =  52 d   (▼ 34 d)&#xa;PCE  =  Σ C/T / L  =  30.7 %    (▲ 9.6 pp)&#xa;Pull steps:  2,  5,  7,  8        Push steps:  1,  3,  4,  6&#xa;Kaizen events:  4 (bursts shown above)" vertex="1">
+          <mxGeometry height="200" width="752" x="812" y="576" as="geometry" />
+        </mxCell>
+        <mxCell id="v108" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;fontColor=#003300;fontSize=20;fontStyle=1;align=center;verticalAlign=middle;" value="Future-State Value Stream Map  ·  75 d Lead Time  ·  23 d VA  ·  PCE = 30.7 %" vertex="1">
+          <mxGeometry height="30" width="1564" x="20" y="788" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
